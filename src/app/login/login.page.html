@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="header">
+    <h1>Login</h1>
+    <img src="assets/icon/to-do.png" />
+  </div>
+
+  <form>
+    <app-input placeholder="User"></app-input>
+    <app-input type="password" placeholder="Password"></app-input>
+    <ion-button expand="block" shape="round">Login</ion-button>
+  </form>
+ 
+  <div id="signup">
+  <ion-buttons slot="end">
+  <ion-button routerLink="/signup">Create account</ion-button>
+</ion-buttons>
+</div>
+
+</ion-content>
