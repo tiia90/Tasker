@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-yourschedule',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class YourschedulePage implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private route: Router) { }
+  ngOnInit(): void {
   }
 
+  nextpage() {
+    this.route.navigate(['/home']);
+  }
 }

@@ -1,55 +1,67 @@
 ion-toolbar {
-    --background: #4843ce ;
+    --background: #6D60F8;
 
 }
 
 ion-content {
-    --background: #ffffff;
+    --background:#6D60F8;
 
     #header {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-top: 10vh;
 
         img {
-            width: 145px;
-            height: 125px;
-            margin-bottom: 30px;
+            background-color: #6D60F8;
+            width: 85vh;
+            margin-top: 5vh;
+            margin-bottom: 5vh;
         }
 
-
-
-
-
     }
+ 
+    
 
-   
-   
-   
-   
-
-    #form {
+    form {
         margin-top: 15px;
+        padding-left: 5vh;
+        padding-right: 5vh; 
 
-        padding-left: 30px;
-        padding-right: 30px;
+        ion-item {
+            border-radius: 15px !important;
+            align-content: center;
+        }
+        
+        ion-input { 
+            --padding-start: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+
+        #spacer {
+            height:0px;
+            margin-bottom: 25px;
+
+        }
+        
 
         ion-button {
-            margin-top: 35px;
-            height: 48px;
+            margin-top: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25vh;
+            height: 40px;
             font-size: 18px;
             text-transform: initial;
             border-radius: 50px;
+
         }
+
+
+
 
     }
 
     
-    #signup {
-        display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 80px;
-
-    }
 }

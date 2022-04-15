@@ -1,16 +1,19 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Welcome
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!--Home-sivulta pääsee klikkaamalla eteenpäin-->
 
 <ion-content [fullscreen]="true">
   <div id="header">
-    
-    <img src="assets/icon/tasker.png" />
-    
+    <ion-buttons>
+      <button ion-button (click)="nextpage()">  
+        <img src="assets/icon/tasker.png" />
+      </button>
+    </ion-buttons>
   </div>
-
+  <div id="signup">
+    <ion-buttons>
+      <button id="special_button" ion-button (click)="nextpage()">
+        LET'S GO!
+      </button>
+    </ion-buttons>
+  </div>
 </ion-content>
+
