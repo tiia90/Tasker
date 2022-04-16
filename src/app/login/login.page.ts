@@ -44,6 +44,7 @@ export class LoginPage implements OnInit {
     await loading.dismiss();
  
     if (user) {
+      this.showAlert('Welcome to TaskeR!', 'Account created!');
       this.router.navigateByUrl('/login', { replaceUrl: true });
     } else {
       this.showAlert('Registration failed', 'Please try again!');
@@ -63,7 +64,12 @@ export class LoginPage implements OnInit {
       this.showAlert('Login failed', 'Please try again!');
     }
   }
- 
+
+  async logout() {
+    this.authService.logout();
+    this.router.navigateByUrl('/login', { replaceUrl: true });
+  }
+
   async showAlert(header, message) {
     const alert = await this.alertController.create({
       header,

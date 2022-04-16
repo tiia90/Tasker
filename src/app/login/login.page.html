@@ -1,22 +1,24 @@
-<ion-content class="ion-padding">
+<ion-content>
 
   <div id="header">
     <img src="assets/icon/tasker.png" />
-  </div>
+  
 
  
+    <div id="lower">
+      <form (ngSubmit)="login()" [formGroup]="credentials">
+        <ion-item>
+          <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+          <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Email is invalid</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+          <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Password needs to be 8 characters</ion-note>
+        </ion-item> 
 
-  <form (ngSubmit)="login()" [formGroup]="credentials">
-    <ion-item fill="solid" class="ion-margin-bottom">
-      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
-      <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Email is invalid</ion-note>
-    </ion-item>
-    <ion-item fill="solid" class="ion-margin-bottom">
-      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
-      <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Password needs to be 6 characters</ion-note>
-    </ion-item>
-    <ion-item id="spacer"></ion-item>
-    <ion-button class="loginbutton" type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>
-    <ion-button type="button" expand="block" color="secondary" (click)="register()">Create account</ion-button>
-  </form>
+        <ion-button class="loginbutton" type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>
+        <ion-button type="button" expand="block" color="secondary" (click)="register()">Create account</ion-button>
+      </form>
+    </div>
+  </div>
 </ion-content>
