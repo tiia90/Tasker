@@ -9,15 +9,20 @@
       <form (ngSubmit)="login()" [formGroup]="credentials">
         <ion-item>
           <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
-          <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Email is invalid</ion-note>
         </ion-item>
         <ion-item>
           <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
-          <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Password needs to be 8 characters</ion-note>
+        </ion-item>
+        <ion-item id="remember">
+          <ion-checkbox></ion-checkbox>
+          <p id="normal_text">Remember me</p>
         </ion-item> 
 
         <ion-button class="loginbutton" type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>
         <ion-button type="button" expand="block" color="secondary" (click)="register()">Create account</ion-button>
+        
+
+
       </form>
     </div>
   </div>

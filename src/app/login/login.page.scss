@@ -53,7 +53,6 @@ ion-content {
                 align-content: center;
                 width: 115%;
                 height: 60px;
-                padding-bottom: 0px;
                 margin: 0px 0px 0px 0px;
                 --border-style: none;
                 --background: white;
@@ -62,19 +61,12 @@ ion-content {
             ion-input {
                 width: 100%;
                 --background: #eceaf8;
-                margin: 0px 0px 0px 0px;
+                margin: 0px;
                 --padding-start: 10px;
                 border-radius: 10px !important;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
-
-            ion-note {
-                height: 10px;
-                font-size: 11px;
-                padding: 0px 0px 0px 10px;
-                margin: 0px 0px 0px 0px;
-            }
-            
+             
             ion-button {
                 margin-top: 10px;
                 margin-left: auto;
@@ -84,12 +76,28 @@ ion-content {
                 font-size: 18px;
                 text-transform: initial;
                 --background: #6D60F8;
-                opacity: 100;
+                border-radius: 10px;
+                box-shadow: rgba(100, 100, 111, 0.7) 0px 3px 9px 0px;
             }
-
+            ion-checkbox {
+                height: 20px;
+                width: 20px;
+                --border-radius: 5px;
+            }
             .loginbutton {
                 margin-top: 30px;
             }
+
+            #remember {
+                margin-bottom: 25px;
+                --padding-start: 25px;
+                margin-top: -5%;
+            }
+
+            #normal_text {           
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            
         }
     } 
 }

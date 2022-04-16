@@ -3,49 +3,98 @@ ion-toolbar {
 }
 
 ion-content {
+  height: 100%;
   --background: #6D60F8;
+  --offset-bottom: auto !important;
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  ion-buttons {
+    background-color: #6D60F8;
+    padding: auto;
+    width: 65%;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: rgba(100, 100, 111, 0.7) 0px 3px 9px 0px;
+
+  }
+  button {
+    margin:auto;
+    background-color: #6D60F8;
+    height: 30px;
+  }
+
+  h3 {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
+  }
+
+  .tiny_text {
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10px;
+  }
+
+  .welcome_text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    margin: 0px;
+  }
+
+  .padding {
+    padding-bottom: 5%;
+
+  }
+
+  .extra_padding {
+    padding-bottom: 20%;
+  }
+  img {
+    background-color: #6D60F8;
+    width: 85vh;
+    padding-bottom: 35%;
+  }
 
   #header {
       display: flex;
       flex-direction: column;
       align-items: center;
-
-    img {
-      background-color: #6D60F8;
-      width: 85vh;
-    }
-    button {
-      margin-top: 35px;
-      padding: 25% 5% 95% 5%;
+      padding-top: 40%;
       background-color: #6D60F8;
     }
 
-    } 
-    #signup {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: 30px;
-      font-weight: bold;
-      background-color: #6D60F8;
-      padding: 0%;
+  #signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 100%;
+    padding: 5% 0 22% 0;
+    overflow:hidden;
+    border-radius: 25px 25px 0px 0px;
+    animation: slideIn 3s ease-in;
+
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateY(500px);
     }
-
-    p {
-      background-color: #6D60F8;
-
-      margin: 0%;
+    40% {
+      transform: translateY(500px);
     }
-    #special_button {
-      background-color: #6D60F8;
-      color: #dfdef1;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: 25px;
-      font-weight: bold;
-      width: 100vh;
-      padding-bottom: 15%;
-
+    90% {
+      transform: traslateY(0px);
+    }
+    100% {
+      transform: skewY(0deg);
     }
   }
+}
 
