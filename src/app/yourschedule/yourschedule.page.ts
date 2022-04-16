@@ -27,4 +27,6 @@ export class YourschedulePage implements OnInit {
     this.route.navigateByUrl('/login', { replaceUrl: true });
   }
 
+  today : number = Date.now()
+
 }
