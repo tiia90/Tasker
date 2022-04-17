@@ -23,6 +23,20 @@
 
 <ion-content>
   <ion-item id="filters"><p>tähän tulee se filter nappi</p></ion-item>
-  <ion-item id="content"></ion-item>
+  <div id="content">
+    <ion-card *ngFor="let item of todoList">
+    <ion-card-header>
+       <ion-card-subtitle>
+          {{item.itemName}} 
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-item>
+      <ion-label id="details">{{item.itemDetails}}</ion-label>
+      <ion-label id="date2">{{item.itemDate}}</ion-label>
+      </ion-item>
+      
+      
+    </ion-card>
+  </div>
 
 </ion-content>

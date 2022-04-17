@@ -10,6 +10,18 @@ import { AuthService } from '../services/auth.service';
 })
 export class YourschedulePage implements OnInit {
 
+  todoList = [{
+    itemName : 'Shopping',
+    itemDate : '20-04-22',
+    itemDetails : 'bread, cheece, milk'
+  },
+  {
+    itemName : 'Homework',
+    itemDate : '22-04.22',
+    itemDetails : 'dishes, cleaning'
+  
+  }]
+
   constructor(  
     private loadingController: LoadingController,
     private alertController: AlertController,
@@ -30,3 +42,7 @@ export class YourschedulePage implements OnInit {
   today : number = Date.now()
 
 }
+ 
+
+
+
