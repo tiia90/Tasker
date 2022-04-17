@@ -14,7 +14,9 @@ export class YourschedulePage implements OnInit {
     private loadingController: LoadingController,
     private alertController: AlertController,
     private authService: AuthService,
-    private route: Router) { }
+    private route: Router
+    ) {}
+
   ngOnInit(): void {
   }
 

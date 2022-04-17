@@ -37,7 +37,7 @@ ion-content {
   .tiny_text {
     justify-content: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .welcome_text {
@@ -79,6 +79,7 @@ ion-content {
     overflow:hidden;
     border-radius: 25px 25px 0px 0px;
     animation: slideIn 3s ease-in;
+    box-shadow: rgba(0, 0, 0, 0.22) 0px -8px 12px, rgba(0, 0, 0, 0.3) 0px -10px 38px;
 
   }
 

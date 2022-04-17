@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'filters',
     loadChildren: () => import('./filters/filters.module').then( m => m.FiltersPageModule)
   },
+  {
+    path: 'taskdetails',
+    loadChildren: () => import('./taskdetails/taskdetails.module').then( m => m.TaskdetailsPageModule)
+  },
 ];
 
 @NgModule({
