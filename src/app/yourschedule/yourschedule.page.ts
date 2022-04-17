@@ -35,7 +35,7 @@ export class YourschedulePage implements OnInit {
   }
 
   nextpage() {
-    this.route.navigate(['/home']);
+    this.route.navigate(['/taskdetails']);
   }
 
   async logout() {

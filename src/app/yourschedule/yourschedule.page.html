@@ -1,26 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-   <ion-item id="up">
-     <ion-label>
-      <ion-buttons>
-        <button ion-button (click)="logout()">
-          LOGOUT
-        </button>
-        <h1>Your schedule</h1>
-      </ion-buttons>
-     </ion-label>
-    </ion-item>
 
-     <ion-item id="up2">
-     <ion-label>
-       <h2>Today</h2>
-       <p id="date">{{today | date:'fullDate'}}</p>
-    </ion-label>
-   </ion-item>
+  <ion-toolbar>
+    <ion-nav>
+      <ion-item id="up">
+        <ion-label>
+          <ion-buttons>
+            <button slot="end" ion-button (click)="logout()">
+              LOGOUT
+            </button>
+          </ion-buttons>
+        </ion-label>
+      </ion-item>
+
+      <ion-item id="up2">
+        <ion-label>
+          <h2>Today</h2>
+          <p id="date">{{today | date:'fullDate'}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-nav>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item id="up">
+    <ion-label>
+      <ion-buttons>
+        <button ion-button (click)="nextpage()">TASKDETAILS</button>
+      </ion-buttons>
+    </ion-label>
+  </ion-item>
+  <h1>Your schedule</h1>
+  <ion-item id="up2">
+    <ion-label>
+      <h2>Today</h2>
+      <p id="date">{{today | date:'fullDate'}}</p>
+    </ion-label>
+  </ion-item>
   <ion-item id="filters"><p>tähän tulee se filter nappi</p></ion-item>
 
 
@@ -69,5 +85,6 @@
 
 
   </div>
+
 
 </ion-content>

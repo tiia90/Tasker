@@ -1,28 +1,30 @@
 #up {
     --background: #6D60F8;
-}
+    align-items: end;
+ }
 
 #up2 {
     --background: #6D60F8;
+ }
 
-}
 #date {
     color: white;
-}
+ }
+
 h1 {
     color: white;
-}
+ }
 
 
 h2 {
     color: white;
-}
+ }
 
 #filters {
     --background: #6D60F8;
+ }
 
-}
- #content {
+#content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,9 +34,9 @@ h2 {
     padding-top: 5vh;
     border-radius: 25px 25px ;
   
-}
+ }
 
- ion-content {
+ion-content {
     --background: #6D60F8;
  }
 
