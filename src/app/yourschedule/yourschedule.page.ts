@@ -53,10 +53,10 @@ taskDate
 taskDetails
 taskObject
 
-  async dismiss(){
-    await this.modalCtrl.dismiss(this.taskObject)
-  }
-
+ 
+ 
+ 
+//turha async poistettu, tämä ei herjaa mutta ei myöskään toimi oikein 
   AddTask(){
     this.taskObject = ({itemName:this.taskName,
                         itemDate:this.taskDate,
@@ -64,18 +64,18 @@ taskObject
 
     this.dismiss()
   }
+  async dismiss(){
+    await this.modalCtrl.dismiss(this.taskObject)
+    const modal = await this.modalCtrl.create({
+      component: this.AddTask
+    })
+    modal.onDidDismiss().then(newTaskObject =>{
+      console.log(newTaskObject.data);
+      this.todoList.push(newTaskObject.data)
+    })
+    return await modal.present()
+  }
 
-   async addTask(){
-     const modal = await this.modalCtrl.create({
-       component: this.AddTask
-     })
-
-     modal.onDidDismiss().then(newTaskObject =>{
-       console.log(newTaskObject.data);
-       this.todoList.push(newTaskObject.data)
-     })
-     return await modal.present()
-   }
    
    3
 	
