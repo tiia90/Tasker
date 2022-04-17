@@ -12,17 +12,19 @@
     </ion-item>
 
      <ion-item id="up2">
-  <ion-label>
+     <ion-label>
        <h2>Today</h2>
        <p id="date">{{today | date:'fullDate'}}</p>
-
-     </ion-label>
+    </ion-label>
    </ion-item>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item id="filters"><p>tähän tulee se filter nappi</p></ion-item>
+
+
+  <!--Tämän jälkeen kaikki on ihan sekaisin ja vaiheessa. pitää fiksata -->
   <div id="content">
     <ion-card *ngFor="let item of todoList">
     <ion-card-header>
@@ -30,13 +32,42 @@
           {{item.itemName}} 
         </ion-card-subtitle>
       </ion-card-header>
-      <ion-item>
+     
       <ion-label id="details">{{item.itemDetails}}</ion-label>
-      <ion-label id="date2">{{item.itemDate}}</ion-label>
-      </ion-item>
-      
-      
+    
+    
+        <ion-row>
+        <ion-label id="date2">{{item.itemDate}}</ion-label>
+        <ion-label><ion-icon name="trash-outline"></ion-icon></ion-label>
+        <ion-label><ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
+      </ion-row>
     </ion-card>
+
+    <ion-card id="textarea">
+
+      <ion-item>
+        <ion-textarea [(ngModel)]="taskName" placeholder="Write new task here"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea [(ngModel)]="taskDetails" placeholder="Write task details here"></ion-textarea>
+      </ion-item>
+
+      <!--kalenteri pitää vielä saada sellaseksi et avaa pienen ikkunan klikatessa, kesken siis-->
+      <ion-item>
+<ion-icon name="calendar-outline"></ion-icon>
+<ion-label>Due date</ion-label>
+<ion-datetime [(ngModel)]="taskDate" displayFormat="D MMM YYYY H:mm"></ion-datetime>
+</ion-item>
+
+<ion-button class="ion-margin" expand="block" (click)="AddTask()">Add</ion-button>
+
+    </ion-card>
+
+
+
+
+
+
   </div>
 
 </ion-content>
