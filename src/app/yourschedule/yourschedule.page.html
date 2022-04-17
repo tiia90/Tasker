@@ -68,11 +68,18 @@
         <ion-textarea [(ngModel)]="taskDetails" placeholder="Write task details here"></ion-textarea>
       </ion-item>
 
-      <!--kalenteri pitää vielä saada sellaseksi et avaa pienen ikkunan klikatessa, kesken siis-->
+      <!--nyt kalenteri aukeaa, vielä pitää lisätä jonkunlainen "done" 
+        nappula joka vahvistaa valitut ja sulkee kalenterin samalla -->
       <ion-item>
-<ion-icon name="calendar-outline"></ion-icon>
-<ion-label>Due date</ion-label>
-<ion-datetime [(ngModel)]="taskDate" displayFormat="D MMM YYYY H:mm"></ion-datetime>
+        <ion-button id="open-modal"><ion-icon name="calendar-outline"></ion-icon></ion-button>
+        <ion-label>Due date</ion-label>
+<ion-modal trigger="open-modal">
+  <ng-template>
+    <ion-content>
+      <ion-datetime [(ngModel)]="taskDate" displayFormat="D MMM YYYY HH:mm" sizw="cover"></ion-datetime>
+    </ion-content>
+  </ng-template>
+</ion-modal>
 </ion-item>
 
 <ion-button class="ion-margin" expand="block" (click)="AddTask()">Add</ion-button>

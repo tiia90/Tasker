@@ -52,32 +52,37 @@ taskDate
 taskDetails
 taskObject
 
-  async dismiss(){
-    await this.modalCtrl.dismiss(this.taskObject)
-  }
 
-  AddTask(){
-    this.taskObject = ({itemName:this.taskName,
-                        itemDate:this.taskDate,
-                      itemDetails:this.taskDetails})
+async dismiss(){
+  await this.modalCtrl.dismiss(this.taskObject)
+}
 
-    this.dismiss()
-  }
-   async addTask(){
-     const modal = await this.modalCtrl.create({
-       component: this.AddTask
-     })
+AddTask(){
+  this.taskObject = ({itemName:this.taskName,
+                      itemDate:this.taskDate,
+                    itemDetails:this.taskDetails})
 
-     modal.onDidDismiss().then(newTaskObject =>{
-       console.log(newTaskObject.data);
-       this.todoList.push(newTaskObject.data)
-     })
-     return await modal.present()
-   }
-   
+  this.dismiss()
+}
+ async addTask(){
+   const modal = await this.modalCtrl.create({
+     component: this.AddTask
+   })
+
+   modal.onDidDismiss().then(newTaskObject =>{
+     console.log(newTaskObject.data);
+     this.todoList.push(newTaskObject.data)
+   })
+   return await modal.present()
+ }
+ 
 
 }
- 
+
+
+
+
+
 
 
 
