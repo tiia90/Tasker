@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController, ModalController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
+import { MenuPage } from '../menu/menu.page';
+import { PopoverController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-yourschedule',
@@ -21,16 +24,14 @@ export class YourschedulePage implements OnInit {
     itemDetails : 'dishes, cleaning'
   
   }]
-
-
- 
  
   constructor(  
     private loadingController: LoadingController,
     private alertController: AlertController,
     private authService: AuthService,
     private route: Router,
-    public modalCtrl:ModalController) { }
+    public modalCtrl:ModalController,
+    private popoverCtrl:PopoverController) { }
   ngOnInit(): void {
   }
 
@@ -63,6 +64,7 @@ taskObject
 
     this.dismiss()
   }
+
    async addTask(){
      const modal = await this.modalCtrl.create({
        component: this.AddTask
@@ -75,6 +77,18 @@ taskObject
      return await modal.present()
    }
    
+   3
+	
+  async openMenu(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: MenuPage,
+      event: ev,
+      cssClass: 'menu-popover'
+    });
+  
+    await popover.present();
+  }
+
 
 }
  

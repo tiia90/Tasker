@@ -9,13 +9,16 @@ import { YourschedulePageRoutingModule } from './yourschedule-routing.module';
 import { YourschedulePage } from './yourschedule.page';
 import { InputModule } from '../components/input/input.module';
 
+import { MenuPageModule } from '../menu/menu.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     InputModule,
-    YourschedulePageRoutingModule
+    YourschedulePageRoutingModule,
+    MenuPageModule
   ],
   declarations: [YourschedulePage]
 })

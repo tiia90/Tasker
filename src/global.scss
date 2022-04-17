@@ -28,3 +28,19 @@
 .no-scroll {
     --overflow: hidden;
 }
+
+.menu-popover {
+    --ion-backdrop-opacity: 0.6;
+ 
+    .menu-arrow {
+        display: none;
+    }
+    
+    .menu-content {
+        align-content:right;
+        left: 10px !important;
+        width: calc(100%);
+    }
+
+
+}

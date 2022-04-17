@@ -37,7 +37,11 @@ const routes: Routes = [
   {
     path: 'taskdetails',
     loadChildren: () => import('./taskdetails/taskdetails.module').then( m => m.TaskdetailsPageModule)
+  },  {
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
+
 ];
 
 @NgModule({
