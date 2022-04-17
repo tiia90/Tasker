@@ -54,7 +54,9 @@
     
         <ion-row>
         <ion-label id="date2">{{item.itemDate}}</ion-label>
-        <ion-label><ion-icon name="trash-outline"></ion-icon></ion-label>
+
+        <!--roskakoreille toiminnalisuus eli delete täytyy luoda-->
+        <ion-label><ion-button id="delete"><ion-icon name="trash-outline"></ion-icon></ion-button></ion-label>
         <ion-label><ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
       </ion-row>
     </ion-card>
@@ -73,11 +75,16 @@
       <ion-item>
         <ion-button id="open-modal"><ion-icon name="calendar-outline"></ion-icon></ion-button>
         <ion-label>Due date</ion-label>
+        <!--Tälle css niin, että kalenteri ja
+           done nappi on lähellä toisia ja taustalla esim blurrattu näkymä yourschedulepagea.
+          sen lisäksi sulku nappi tarvii toiminnallisuuden että valittu aika tulee voimaan (ehkä?)
+        voi olla että riittää kun tekee muuten toiminnallisuuden tälle koko cardille-->
 <ion-modal trigger="open-modal">
   <ng-template>
     <ion-content>
       <ion-datetime [(ngModel)]="taskDate" displayFormat="D MMM YYYY HH:mm" sizw="cover"></ion-datetime>
     </ion-content>
+    <ion-button id="close-modal">Done</ion-button>
   </ng-template>
 </ion-modal>
 </ion-item>
