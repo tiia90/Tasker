@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-/*import { Calendar } from '@awesome-cordova-plugins/calendar/ngx';*/
+import { CalendarModule } from 'ion2-calendar';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-taskdetails',
@@ -9,24 +10,30 @@ import { Router } from '@angular/router';
 })
 export class TaskdetailsPage implements OnInit {
 
-  constructor(/*private calendar: Calendar, */private route:Router) { }
+  constructor(
+    private calendar: CalendarModule, 
+    private route:Router,
+    private authService: AuthService
+    ) { }
 
   ngOnInit():void {
   }
 
 
-/*create_calendar() {
-  this.calendar.createCalendar('MyCalendar').then(
-    (msg) => { console.log(msg); },
-    (err) => { console.log(err); }
-  );
-}*/
+  date: string;
+  type: 'string';
+
+  onChange($event) {
+    console.log($event);
+  }
+
 nextpage() {
   this.route.navigate(['/home']);
 }
 
-
-
+async logout() {
+  this.authService.logout();
+  this.route.navigateByUrl('/login', { replaceUrl: true });
+}
   today : number = Date.now()
-
 }

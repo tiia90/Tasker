@@ -40,30 +40,15 @@ ion-content {
     --background: #6D60F8;
  }
 
-ion-nav {
-    align-items: end;
-    --background: #42a500;
- }
+ #date2 {
 
-ion-buttons {
-    align-items: end;
-    --background: #42a500;
- }
-
-ion-toolbar {
-    align-items: end;
-    --background: #42a500;
- }
-
-ion-item {
-    --backgound: #42a500;
- }
-
-ion-label {
-    --backgound: #42a500;
+   
+   margin-left: 40px;
+   margin-bottom: 20px;
+   margin-top: 1px;
 }
 
-ion-header {
-        --backgound: #42a500;
-        opacity: 100;
+#details {
+    margin-top: 10px;
 }
+

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { TaskdetailsPageRoutingModule } from './taskdetails-routing.module';
 
 import { TaskdetailsPage } from './taskdetails.page';
+import { CalendarModule } from 'ion2-calendar';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TaskdetailsPageRoutingModule
+    TaskdetailsPageRoutingModule,
+    CalendarModule
   ],
   declarations: [TaskdetailsPage]
 })
