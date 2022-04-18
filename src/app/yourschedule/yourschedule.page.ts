@@ -24,6 +24,11 @@ export class YourschedulePage implements OnInit {
     itemDetails : 'dishes, cleaning'
   
   }]
+  
+taskName
+taskDate
+taskDetails
+taskObject
  
   constructor(  
     private loadingController: LoadingController,
@@ -46,25 +51,24 @@ export class YourschedulePage implements OnInit {
 
 today : number = Date.now()
 
-//tämä jälkeen kaikki on kesken
 
-taskName
-taskDate
-taskDetails
-taskObject
+
+
+
+
 
  
  
  
-//turha async poistettu, tämä ei herjaa mutta ei myöskään toimi oikein 
+
   AddTask(){
     this.taskObject = ({itemName:this.taskName,
                         itemDate:this.taskDate,
                       itemDetails:this.taskDetails})
 
-    this.dismiss()
+    this.dismis()
   }
-  async dismiss(){
+  async dismis(){
     await this.modalCtrl.dismiss(this.taskObject)
     const modal = await this.modalCtrl.create({
       component: this.AddTask
@@ -73,7 +77,7 @@ taskObject
       console.log(newTaskObject.data);
       this.todoList.push(newTaskObject.data)
     })
-    return await modal.present()
+   
   }
 
    
