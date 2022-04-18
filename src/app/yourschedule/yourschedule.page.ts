@@ -24,6 +24,11 @@ export class YourschedulePage implements OnInit {
     itemDetails : 'dishes, cleaning'
   
   }]
+  
+taskName
+taskDate
+taskDetails
+taskObject
  
   constructor(  
     private loadingController: LoadingController,
@@ -44,41 +49,6 @@ export class YourschedulePage implements OnInit {
     this.route.navigateByUrl('/login', { replaceUrl: true });
   }
 
-today : number = Date.now()
-
-//tämä jälkeen kaikki on kesken
-
-taskName
-taskDate
-taskDetails
-taskObject
-
- 
- 
- 
-//turha async poistettu, tämä ei herjaa mutta ei myöskään toimi oikein 
-  AddTask(){
-    this.taskObject = ({itemName:this.taskName,
-                        itemDate:this.taskDate,
-                      itemDetails:this.taskDetails})
-
-    this.dismiss()
-  }
-  async dismiss(){
-    await this.modalCtrl.dismiss(this.taskObject)
-    const modal = await this.modalCtrl.create({
-      component: this.AddTask
-    })
-    modal.onDidDismiss().then(newTaskObject =>{
-      console.log(newTaskObject.data);
-      this.todoList.push(newTaskObject.data)
-    })
-    return await modal.present()
-  }
-
-   
-   3
-	
   async openMenu(ev) {
     const popover = await this.popoverCtrl.create({
       component: MenuPage,
@@ -87,6 +57,30 @@ taskObject
     });
   
     await popover.present();
+  }
+
+today : number = Date.now()
+ 
+
+// työstössä
+
+  AddTask(){
+    this.taskObject = ({itemName:this.taskName,
+                        itemDate:this.taskDate,
+                      itemDetails:this.taskDetails})
+
+    this.dismis()
+  }
+  async dismis(){
+    await this.modalCtrl.dismiss(this.taskObject)
+    const modal = await this.modalCtrl.create({
+      component: this.AddTask
+    })
+    modal.onDidDismiss().then(newTaskObject =>{
+      console.log(newTaskObject.data);
+      this.todoList.push(newTaskObject.data)
+    })
+   
   }
 
 }

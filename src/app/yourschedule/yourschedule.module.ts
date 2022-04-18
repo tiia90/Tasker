@@ -10,6 +10,9 @@ import { YourschedulePage } from './yourschedule.page';
 import { InputModule } from '../components/input/input.module';
 
 import { MenuPageModule } from '../menu/menu.module';
+import { Storage } from '@ionic/storage-angular';
+
+
 
 @NgModule({
   imports: [
@@ -18,7 +21,8 @@ import { MenuPageModule } from '../menu/menu.module';
     IonicModule,
     InputModule,
     YourschedulePageRoutingModule,
-    MenuPageModule
+    MenuPageModule,
+    Storage,
   ],
   declarations: [YourschedulePage]
 })

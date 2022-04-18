@@ -47,37 +47,34 @@
       </ion-row>
     </ion-card>
 
-    <ion-card id="textarea">
+    
+      
+    <ion-button id="open-modal"> 
+  <ion-card id="textarea">
+    <ion-card-subtitle>
+      Add new task 
+    </ion-card-subtitle>
+      <ion-modal trigger="open-modal">
+        <ng-template>
 
       <ion-item>
         <ion-textarea [(ngModel)]="taskName" placeholder="Write new task here"></ion-textarea>
       </ion-item>
+      
       <ion-item>
         <ion-textarea [(ngModel)]="taskDetails" placeholder="Write task details here"></ion-textarea>
       </ion-item>
 
-      <!--nyt kalenteri aukeaa, vielä pitää lisätä jonkunlainen "done" 
-        nappula joka vahvistaa valitut ja sulkee kalenterin samalla -->
       <ion-item>
-        <ion-button id="open-modal"><ion-icon name="calendar-outline"></ion-icon></ion-button>
+        <ion-icon name="calendar-outline"></ion-icon>
         <ion-label>Due date</ion-label>
-        <!--Tälle css niin, että kalenteri ja
-           done nappi on lähellä toisia ja taustalla esim blurrattu näkymä yourschedulepagea.
-          sen lisäksi sulku nappi tarvii toiminnallisuuden että valittu aika tulee voimaan (ehkä?)
-        voi olla että riittää kun tekee muuten toiminnallisuuden tälle koko cardille-->
-<ion-modal trigger="open-modal">
-  <ng-template>
-    <ion-content>
-      <ion-datetime [(ngModel)]="taskDate" displayFormat="D MMM YYYY HH:mm" sizw="cover"></ion-datetime>
-    </ion-content>
-    <ion-button id="close-modal">Done</ion-button>
-  </ng-template>
-</ion-modal>
+<ion-datetime [(ngModel)]="taskDate" displayFormat="D MMM YYYY HH:mm" sizw="cover"></ion-datetime>
 </ion-item>
 
 <ion-button class="ion-margin" expand="block" (click)="AddTask()">Add</ion-button>
-
-    </ion-card>
+</ng-template>
+</ion-modal>
+    </ion-card></ion-button>
 
 
 
