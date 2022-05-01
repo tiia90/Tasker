@@ -10,7 +10,7 @@ import { YourschedulePage } from './yourschedule.page';
 import { InputModule } from '../components/input/input.module';
 
 import { MenuPageModule } from '../menu/menu.module';
-import { Storage } from '@ionic/storage-angular';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 
 
@@ -22,7 +22,7 @@ import { Storage } from '@ionic/storage-angular';
     InputModule,
     YourschedulePageRoutingModule,
     MenuPageModule,
-    Storage,
+    IonicStorageModule.forRoot(),
   ],
   declarations: [YourschedulePage]
 })

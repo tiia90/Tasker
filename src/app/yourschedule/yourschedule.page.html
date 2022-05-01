@@ -8,79 +8,79 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-item id="up">
+<ion-content [fullscreen]="true">
+  <ion-text id="page-title-text">Your schedule</ion-text>
+
+  <ion-item id="task-details-nav-button">
     <ion-label>
       <ion-buttons>
         <button ion-button (click)="nextpage()">TASKDETAILS</button>
       </ion-buttons>
     </ion-label>
   </ion-item>
-  <h1>Your schedule</h1>
-  <ion-item id="up2">
-    <ion-label>
-      <h2>Today</h2>
-      <p id="date">{{today | date:'fullDate'}}</p>
-    </ion-label>
-  </ion-item>
+
+  <ion-text>{{today | date:'fullDate'}}</ion-text>
+
   <ion-item id="filters"><p>tähän tulee se filter nappi</p></ion-item>
 
-
-  <!--Tämän jälkeen kaikki on ihan sekaisin ja vaiheessa. pitää fiksata -->
-  <div id="content">
-    <ion-card *ngFor="let item of todoList">
-    <ion-card-header>
-       <ion-card-subtitle>
-          {{item.itemName}} 
-        </ion-card-subtitle>
-      </ion-card-header>
-     
-      <ion-label id="details">{{item.itemDetails}}</ion-label>
-    
-    
+<!--Task-lista-->
+  <div id="task-list-div">
+    <ion-list>
+      <ion-item class="task-list-item" *ngFor="let t of tasks">
         <ion-row>
-        <ion-label id="date2">{{item.itemDate}}</ion-label>
+          <ion-col size="10">
+          <ion-button class="task-item-button" (click)="goEditTask(t.id)">
+            <ion-row>
+              <ion-col class="task-item-col">
+                <ion-row>
+                <ion-label class="task-item-label"><ion-text class="title">{{ t.title }}</ion-text></ion-label>
+                </ion-row>
+                <ion-row>
+                  <ion-label class="task-item-label"><ion-text>{{ t.lastUpdated }}</ion-text></ion-label>
+                </ion-row>
+                <ion-row>
+                  <ion-label class="task-item-label">{{ t.content }}</ion-label>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            </ion-button>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button class="delete-button" (click)="presentAlertConfirm(t.id, t.title)">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>  
+      </ion-item>
+    </ion-list>
 
-        <!--roskakoreille toiminnalisuus eli delete täytyy luoda-->
-        <ion-label><ion-button id="delete"><ion-icon name="trash-outline"></ion-icon></ion-button></ion-label>
-        <ion-label><ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
-      </ion-row>
-    </ion-card>
-
-    
-      
+<!--Taskin lisäys popup-->
     <ion-button id="open-modal"> 
-  <ion-card id="textarea">
-    <ion-card-subtitle>
-      Add new task 
-    </ion-card-subtitle>
-      <ion-modal trigger="open-modal">
-        <ng-template>
-
-      <ion-item>
-        <ion-textarea [(ngModel)]="taskName" placeholder="Write new task here"></ion-textarea>
-      </ion-item>
-      
-      <ion-item>
-        <ion-textarea [(ngModel)]="taskDetails" placeholder="Write task details here"></ion-textarea>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="calendar-outline"></ion-icon>
-        <ion-label>Due date</ion-label>
-<ion-datetime [(ngModel)]="taskDate" displayFormat="D MMM YYYY HH:mm" sizw="cover"></ion-datetime>
-</ion-item>
-
-<ion-button class="ion-margin" expand="block" (click)="AddTask()">Add</ion-button>
-</ng-template>
-</ion-modal>
-    </ion-card></ion-button>
-
-
-
-
-
-
+      <ion-card id="textarea">
+        <ion-card-subtitle>
+          Add new task 
+        </ion-card-subtitle>
+        <ion-modal id="add-task-modal" trigger="open-modal">
+          <ng-template id="add-task-modal">
+  
+              <ion-item>
+                <ion-textarea #title placeholder="Add task title"></ion-textarea>
+              </ion-item>
+          
+              <ion-item>
+                <ion-textarea #content placeholder="Add task details"></ion-textarea>
+              </ion-item>
+  
+              <ion-item id="add-task-calendar">
+                <ion-label>Due date</ion-label>
+                <ion-datetime #date displayFormat="YYYY-MM-DD, HH:mm" size="cover"></ion-datetime>
+              </ion-item>
+  
+              <ion-button class="ion-margin" expand="block" (click)="addItem(title.value, content.value, date.value)">Add task</ion-button>
+            </ng-template>
+        </ion-modal>
+      </ion-card>
+    </ion-button>
   </div>
 
 

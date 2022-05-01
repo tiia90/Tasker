@@ -11,21 +11,39 @@
      </ion-label>
     </ion-item>
 
-     <ion-item id="up2">
-  <ion-label>
-       <h2>Today</h2>
-       <p id="date">{{today | date:'fullDate'}}</p>
-
-     </ion-label>
+    <ion-item id="up2">
+      <ion-label>{{today | date:'fullDate'}}</ion-label>
    </ion-item>
   </ion-toolbar>
-
-  <div class="ion-padding">
-    <ion-calendar [(ngModel)]="date"
-      (onChange)="onChange($event)"
-      [type]="type"
-      [format]="'YYYY-MM-DD'">
-    </ion-calendar>
-  </div>
-  
 </ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Task details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="floating">{{this.task.title}}</ion-label>
+    <ion-input clearInput [(ngModel)]="task.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">{{this.task.content}}</ion-label>
+    <ion-input clearInput [(ngModel)]="task.content"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">{{this.task.lastUpdated}}</ion-label>
+    <ion-input clearInput [(ngModel)]="task.lastUpdated"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button (click)="nextpage()" expand="full">
+    Cancel
+  </ion-button>
+  <ion-button (click)="saveTask()" (click)="nextpage()" expand="full">
+    Save changes
+  </ion-button>
+</ion-content>

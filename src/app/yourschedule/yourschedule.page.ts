@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController, ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { MenuPage } from '../menu/menu.page';
 import { PopoverController } from '@ionic/angular';
-
+import { StorageItem } from '../shared/noteItem';
+import { TasksService } from '../services/tasks.service';
+import { RefresherEventDetail } from '@ionic/core';
 
 @Component({
   selector: 'app-yourschedule',
@@ -13,31 +15,67 @@ import { PopoverController } from '@ionic/angular';
 })
 export class YourschedulePage implements OnInit {
 
-  todoList = [{
-    itemName : 'Shopping',
-    itemDate : '20-04-22',
-    itemDetails : 'bread, cheece, milk'
-  },
-  {
-    itemName : 'Homework',
-    itemDate : '22-04.22',
-    itemDetails : 'dishes, cleaning'
-  
-  }]
-  
-taskName
-taskDate
-taskDetails
-taskObject
+  today : number = Date.now()
+  filter: 'all' | 'active' | 'status' = 'all';
+  tasks: StorageItem[] = [];
+  newTask: StorageItem
  
   constructor(  
-    private loadingController: LoadingController,
-    private alertController: AlertController,
+
     private authService: AuthService,
     private route: Router,
     public modalCtrl:ModalController,
-    private popoverCtrl:PopoverController) { }
+    private popoverCtrl:PopoverController,
+    private taskService: TasksService,
+    private alertController: AlertController) { 
+    }
+
   ngOnInit(): void {
+  }
+
+  ionViewWillEnter() {
+    this.taskService.getTasks().then(
+      data => this.tasks = data
+    );
+  }
+
+
+
+
+
+  goEditTask(id:number) {
+    this.route.navigate(['/taskdetails', id]);
+  }
+
+  deleteTask(id: number) {
+    this.taskService.deleteTask(id).then(
+      () => this.taskService.getTasks().then(
+        data => this.tasks = data
+      )
+    );
+    
+  }
+
+  async presentAlertConfirm(id: number, title: string) {
+    console.log('alert');
+    const alert = await this.alertController.create({
+      header: 'Delete task',
+      message: `Are you sure you want to delete task <strong> ${title}</strong>?`,
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary'
+        }, {
+          text: 'Delete',
+          handler: () => {
+            this.deleteTask(id);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   nextpage() {
@@ -59,28 +97,30 @@ taskObject
     await popover.present();
   }
 
-today : number = Date.now()
- 
+  addItem(title:string, content:string, lastUpdated:string) {
+    var dateAndTime = lastUpdated.split('T')[0] + " at " + lastUpdated.split('T')[1].slice(0, 8);
 
-// työstössä
+    this.newTask = {"title": title, "content": content, "lastUpdated": dateAndTime, done: false};
+    
+    this.taskService.saveTask(this.newTask).then(
+      () => this.taskService.getTasks().then(
+        data => this.tasks = data
+      )
+    );
 
-  AddTask(){
-    this.taskObject = ({itemName:this.taskName,
-                        itemDate:this.taskDate,
-                      itemDetails:this.taskDetails})
+    this.modalCtrl.dismiss();
 
-    this.dismis()
   }
-  async dismis(){
-    await this.modalCtrl.dismiss(this.taskObject)
+
+  currentModal = null;
+
+  async openModal(opts = {}) {
     const modal = await this.modalCtrl.create({
-      component: this.AddTask
-    })
-    modal.onDidDismiss().then(newTaskObject =>{
-      console.log(newTaskObject.data);
-      this.todoList.push(newTaskObject.data)
-    })
-   
-  }
+      component: 'modal-content',
+      ...opts,
+    });
+    modal.present();
 
-}
+    this.currentModal = modal;
+  }
+} 

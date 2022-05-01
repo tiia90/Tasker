@@ -1,75 +1,99 @@
-#up {
+ion-content {
+    --background: #6D60F8;
+    width: 100%;
+    text-align: center;
+ }
+
+ion-text {
+    color: white;
+}
+ion-toolbar {
+    --background: #6D60F8;
+    padding-right: 6%;
+
+    #menubutton {
+        height:30px;
+        background-color: #FFFFFF;
+        border-radius: 5px;
+        box-shadow: rgba(100, 100, 111, 0.7) 0px 3px 9px 0px;
+    }
+    
+}
+
+
+#task-details-nav-button {
     --background: #6D60F8;
     align-items: end;
+    --border-style: none;
  }
-
-#up2 {
-    --background: #6D60F8;
- }
-
-#date {
-    color: white;
- }
-
-h1 {
-    color: white;
- }
-
-
-h2 {
+ #page-title-text {
+    text-align: center;
+    font-size: 30px;
     color: white;
  }
 
 #filters {
     --background: #6D60F8;
+    --border-style: none;
  }
 
-#content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-    background-color: white;
-    width: 100%;
-    padding-top: 5vh;
-    border-radius: 25px 25px ;
-  
- }
-
-ion-content {
-    --background: #6D60F8;
-    width: 100%;
- }
-
- #date2 {
-
-   
-   margin-left: 40px;
-   margin-bottom: 20px;
-   margin-top: 1px;
-}
-
-#details {
-    margin-top: 10px;
-}
-
-ion-toolbar {
-    --background: #6D60F8;
-    padding-right: 6%;
-}
-
-ion-buttons{
-    --background: #FFFFFF;
-    height: 40px;
-}
-#menubutton {
-    height:30px;
+#task-list-div {
     background-color: #FFFFFF;
-    border-radius: 5px;
-    box-shadow: rgba(100, 100, 111, 0.7) 0px 3px 9px 0px;
+    width: 100%;
+    height: 75%;
+    border-radius: 25px 25px 0px 0px;
+    padding-top: 50px;
 }
 
+.task-list-item {
+    padding: 0;
+    margin: 2%;
+    border-radius: 5px;
+    --background: #6D60F8;
+    --border-style: none;
+}
 
+.task-item-button {
+    --background: #6D60F8;
+    width: 100%;
+    text-align: start;
+    height:50px;
+    padding: 0;
+}
 
+.task-item-label {
+    --background: #6D60F8;
+    width: 100%;
+    text-align: start;
+}
 
+.title {
+    font-size: 20px;
+}
 
+.task-item-col {
+    width: 80%;
+}
+.delete-button {
+    --background: #6D60F8;
+    border-radius: 5px;
+    align-content: center;
+    height: 50px;
+}
+
+ion-row {
+    --background: #6D60F8;
+    width:100%;
+}
+ion-col {
+    padding: 0;
+}
+
+#add-task-modal {
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+#add-task-calendar {
+    height: 70%;
+}

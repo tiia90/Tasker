@@ -7,7 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { TaskdetailsPageRoutingModule } from './taskdetails-routing.module';
 
 import { TaskdetailsPage } from './taskdetails.page';
+
 import { CalendarModule } from 'ion2-calendar';
+import { Routes, RouterModule } from '@angular/router';
+
+
+const routes: Routes = [
+  {
+    path: '',
+    component: TaskdetailsPage
+  }
+];
 
 @NgModule({
   imports: [
@@ -15,7 +25,8 @@ import { CalendarModule } from 'ion2-calendar';
     FormsModule,
     IonicModule,
     TaskdetailsPageRoutingModule,
-    CalendarModule
+    CalendarModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [TaskdetailsPage]
 })

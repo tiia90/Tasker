@@ -1,6 +1,8 @@
 export interface StorageItem {
-    key: string;
-    value: string;
-    lastUpdated: number;
-    color: string;
+    id?: number;
+    title: string;
+    content: string;
+    lastUpdated: string;
+    done: boolean;
+
 }
