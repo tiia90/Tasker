@@ -1,3 +1,18 @@
+<!--
+  Taskien lisääminen toimii!
+  Taskit tallentuu, kun niitä lisää!
+  Task-lista päivittyy, kun lisää uuden taskin!
+  Taskien muokkaaminen toimii!
+  Taskien poistaminen toimii!
+
+  CSS miten sattuu.
+  HTML saattaa olla spagettia.
+  TS saattaa olla spagettia.
+
+  :D
+
+-->
+
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="end">
@@ -10,14 +25,6 @@
 
 <ion-content [fullscreen]="true">
   <ion-text id="page-title-text">Your schedule</ion-text>
-
-  <ion-item id="task-details-nav-button">
-    <ion-label>
-      <ion-buttons>
-        <button ion-button (click)="nextpage()">TASKDETAILS</button>
-      </ion-buttons>
-    </ion-label>
-  </ion-item>
 
   <ion-text>{{today | date:'fullDate'}}</ion-text>
 
