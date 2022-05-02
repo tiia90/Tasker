@@ -1,18 +1,3 @@
-<!--
-  Taskien lisääminen toimii!
-  Taskit tallentuu, kun niitä lisää!
-  Task-lista päivittyy, kun lisää uuden taskin!
-  Taskien muokkaaminen toimii!
-  Taskien poistaminen toimii!
-
-  CSS miten sattuu.
-  HTML saattaa olla spagettia.
-  TS saattaa olla spagettia.
-
-  :D
-
--->
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="end">
@@ -34,13 +19,13 @@
 
 <!--Task-lista-->
   <div id="task-list-div">
-    <ion-list>
+
       <ion-item class="task-list-item" *ngFor="let t of tasks">
         <ion-row>
           <ion-col size="10">
           <ion-button class="task-item-button" (click)="goEditTask(t.id)">
             <ion-row>
-              <ion-col class="task-item-col">
+              <ion-col>
                 <ion-row>
                 <ion-label class="task-item-label"><ion-text class="title">{{ t.title }}</ion-text></ion-label>
                 </ion-row>
@@ -61,7 +46,6 @@
           </ion-col>
         </ion-row>
       </ion-item>
-    </ion-list>
 
 <!--Taskin lisäys popup-->
     <ion-button id="open-modal">

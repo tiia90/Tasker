@@ -6,7 +6,6 @@ import { MenuPage } from '../menu/menu.page';
 import { PopoverController } from '@ionic/angular';
 import { StorageItem } from '../shared/noteItem';
 import { TasksService } from '../services/tasks.service';
-import { RefresherEventDetail } from '@ionic/core';
 
 @Component({
   selector: 'app-yourschedule',
@@ -38,10 +37,6 @@ export class YourschedulePage implements OnInit {
       data => this.tasks = data
     );
   }
-
-
-
-
 
   goEditTask(id:number) {
     this.route.navigate(['/taskdetails', id]);
@@ -98,7 +93,7 @@ export class YourschedulePage implements OnInit {
   }
 
   addItem(title:string, content:string, lastUpdated:string) {
-    var dateAndTime = lastUpdated.split('T')[0] + " at " + lastUpdated.split('T')[1].slice(0, 8);
+    var dateAndTime = lastUpdated.split('T')[0] + " at " + lastUpdated.split('T')[1].slice(0, 5);
 
     this.newTask = {"title": title, "content": content, "lastUpdated": dateAndTime, done: false};
     

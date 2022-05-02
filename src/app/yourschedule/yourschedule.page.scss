@@ -7,9 +7,20 @@ ion-content {
 ion-text {
     color: white;
 }
+
+ion-row {
+    --background: #6D60F8;
+    width:100%;
+}
+
+ion-col {
+    padding: 0;
+}
+
 ion-toolbar {
     --background: #6D60F8;
     padding-right: 6%;
+    --border-style: none;
 
     #menubutton {
         height:30px;
@@ -20,7 +31,7 @@ ion-toolbar {
 
 }
 
-#dateToday
+
 
 #task-details-nav-button {
     --background: #6D60F8;
@@ -34,7 +45,7 @@ ion-toolbar {
     margin:auto;
  }
 
-#filters {
+#filter-div {
     --background: #6D60F8;
     --border-style: none;
  }
@@ -44,7 +55,7 @@ ion-toolbar {
     width: 100%;
     height: 75%;
     border-radius: 25px 25px 0px 0px;
-    padding-top: 50px;
+    padding-top: 8%;
 }
 
 .task-list-item {
@@ -61,34 +72,24 @@ ion-toolbar {
     text-align: start;
     height:50px;
     padding: 0;
+    box-shadow: none;
 }
 
 .task-item-label {
     --background: #6D60F8;
     width: 100%;
     text-align: start;
+
+    .title {
+        font-size: 20px;
+    }
 }
 
-.title {
-    font-size: 20px;
-}
-
-.task-item-col {
-    width: 80%;
-}
 .delete-button {
     --background: #6D60F8;
     border-radius: 5px;
     align-content: center;
     height: 50px;
-}
-
-ion-row {
-    --background: #6D60F8;
-    width:100%;
-}
-ion-col {
-    padding: 0;
 }
 
 #add-task-modal {
