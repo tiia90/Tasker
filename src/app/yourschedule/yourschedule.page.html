@@ -24,11 +24,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-item>
   <ion-text id="page-title-text">Your schedule</ion-text>
-
-  <ion-text>{{today | date:'fullDate'}}</ion-text>
-
-  <ion-item id="filters"><p>tähän tulee se filter nappi</p></ion-item>
+  </ion-item>
+<ion-item>
+  <ion-text id="dateToday">{{today | date:'fullDate'}}</ion-text>
+</ion-item>
+  <ion-item id="filters"><ion-button>Filters</ion-button></ion-item>
 
 <!--Task-lista-->
   <div id="task-list-div">
@@ -57,32 +59,32 @@
               <ion-icon name="trash"></ion-icon>
             </ion-button>
           </ion-col>
-        </ion-row>  
+        </ion-row>
       </ion-item>
     </ion-list>
 
 <!--Taskin lisäys popup-->
-    <ion-button id="open-modal"> 
+    <ion-button id="open-modal">
       <ion-card id="textarea">
         <ion-card-subtitle>
-          Add new task 
+          Add new task
         </ion-card-subtitle>
         <ion-modal id="add-task-modal" trigger="open-modal">
           <ng-template id="add-task-modal">
-  
+
               <ion-item>
                 <ion-textarea #title placeholder="Add task title"></ion-textarea>
               </ion-item>
-          
+
               <ion-item>
                 <ion-textarea #content placeholder="Add task details"></ion-textarea>
               </ion-item>
-  
+
               <ion-item id="add-task-calendar">
                 <ion-label>Due date</ion-label>
                 <ion-datetime #date displayFormat="YYYY-MM-DD, HH:mm" size="cover"></ion-datetime>
               </ion-item>
-  
+
               <ion-button class="ion-margin" expand="block" (click)="addItem(title.value, content.value, date.value)">Add task</ion-button>
             </ng-template>
         </ion-modal>

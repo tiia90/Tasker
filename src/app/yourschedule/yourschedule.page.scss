@@ -17,9 +17,10 @@ ion-toolbar {
         border-radius: 5px;
         box-shadow: rgba(100, 100, 111, 0.7) 0px 3px 9px 0px;
     }
-    
+
 }
 
+#dateToday
 
 #task-details-nav-button {
     --background: #6D60F8;
@@ -30,6 +31,7 @@ ion-toolbar {
     text-align: center;
     font-size: 30px;
     color: white;
+    margin:auto;
  }
 
 #filters {
