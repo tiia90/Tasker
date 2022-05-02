@@ -21,14 +21,17 @@ export class TaskdetailsPage implements OnInit {
 
 
   today : number = Date.now()
+  newTask: StorageItem
   task: StorageItem
-  tasks: StorageItem[]
+  tasks: StorageItem[] = [];
+  
 
   constructor(
     private tasksService: TasksService,
     private router: ActivatedRoute,
     private route: Router,
     private popoverCtrl:PopoverController,
+    private taskService: TasksService,
     private authService: AuthService,
   ) { }
 
@@ -61,6 +64,16 @@ export class TaskdetailsPage implements OnInit {
     });
   
     await popover.present();
+  }
+
+  addItem(title:string, content:string, lastUpdated:string) {
+    /*var dateAndTime = lastUpdated.split('T')[0] + " at " + lastUpdated.split('T')[1].slice(0, 5);*/
+    this.task = {"id": this.task.id, "title": title, "content": content, "lastUpdated": lastUpdated, done: false};
+    this.taskService.saveTask(this.task).then(
+      () => this.taskService.getTasks().then(
+        data => this.tasks = data
+      )
+    );
   }
 
   /*interface DatetimeChangeEventDetail {
