@@ -18,15 +18,15 @@ export class YourschedulePage implements OnInit {
   filter: 'all' | 'active' | 'status' = 'all';
   tasks: StorageItem[] = [];
   newTask: StorageItem
- 
-  constructor(  
+
+  constructor(
 
     private authService: AuthService,
     private route: Router,
     public modalCtrl:ModalController,
     private popoverCtrl:PopoverController,
     private taskService: TasksService,
-    private alertController: AlertController) { 
+    private alertController: AlertController) {
     }
 
   ngOnInit(): void {
@@ -48,7 +48,7 @@ export class YourschedulePage implements OnInit {
         data => this.tasks = data
       )
     );
-    
+
   }
 
   async presentAlertConfirm(id: number, title: string) {
@@ -88,7 +88,7 @@ export class YourschedulePage implements OnInit {
       event: ev,
       cssClass: 'menu-popover'
     });
-  
+
     await popover.present();
   }
 
@@ -96,7 +96,7 @@ export class YourschedulePage implements OnInit {
     var dateAndTime = lastUpdated.split('T')[0] + " at " + lastUpdated.split('T')[1].slice(0, 5);
 
     this.newTask = {"title": title, "content": content, "lastUpdated": dateAndTime, done: false};
-    
+
     this.taskService.saveTask(this.newTask).then(
       () => this.taskService.getTasks().then(
         data => this.tasks = data
@@ -105,6 +105,10 @@ export class YourschedulePage implements OnInit {
 
     this.modalCtrl.dismiss();
 
+  }
+
+  cancelItem() { //cancellaa taskin kun tekee uutta taskia
+    this.modalCtrl.dismiss();
   }
 
   currentModal = null;
@@ -118,4 +122,4 @@ export class YourschedulePage implements OnInit {
 
     this.currentModal = modal;
   }
-} 
+}
