@@ -1,11 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StorageItem } from '../shared/noteItem';
 import { TasksService } from 'src/app/services/tasks.service';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { MenuPage } from '../menu/menu.page';
 
+/*
+import { Calendar } from '@awesome-cordova-plugins/calendar/ngx';
+import { IonDatetime } from '@ionic/angular';
+import { format, parseISO, getDate, getMonth, getYear } from 'date-fns';
+*/
 @Component({
   selector: 'app-taskdetails',
   templateUrl: './taskdetails.page.html',
@@ -58,4 +63,40 @@ export class TaskdetailsPage implements OnInit {
     await popover.present();
   }
 
+  /*interface DatetimeChangeEventDetail {
+    value?: string | null;
+  }
+  //new date time picker from here:
+
+  
+  @Component({…})
+  export class MyComponent {
+    @ViewChild(IonDatetime, { static: true }) datetime: IonDatetime;
+  
+    dateValue = '';
+    dateValue2 = '';
+  
+    constructor() {}
+    
+    confirm() {
+      this.datetime.nativeEl.confirm();
+    }
+    
+    reset() {
+      this.datetime.nativeEl.reset();
+    }
+  
+    formatDate(value: string) {
+      return format(parseISO(value), 'MMM dd yyyy');
+    }
+  
+    isDateEnabled(dateIsoString: string) {
+      const date = new Date(dateIsoString);
+      if (getDate(date) === 1 && getMonth(date) === 0 && getYear(date) === 2022) {
+        // Disables January 1, 2022.
+        return false;
+      }
+      return true;
+    }
+  }*/
 }

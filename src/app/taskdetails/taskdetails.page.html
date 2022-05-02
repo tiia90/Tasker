@@ -1,3 +1,4 @@
+<!--
 <ion-header>
   <ion-toolbar>
    <ion-item id="up">
@@ -16,6 +17,103 @@
    </ion-item>
   </ion-toolbar>
 </ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Task details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="floating">{{this.task.title}}</ion-label>
+    <ion-input clearInput [(ngModel)]="task.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">{{this.task.content}}</ion-label>
+    <ion-input clearInput [(ngModel)]="task.content"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">{{this.task.lastUpdated}}</ion-label>
+    <ion-input clearInput [(ngModel)]="task.lastUpdated"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button (click)="nextpage()" expand="full">
+    Cancel
+  </ion-button>
+  <ion-button (click)="saveTask()" (click)="nextpage()" expand="full">
+    Save changes
+  </ion-button>
+</ion-content>
+
+-->
+
+
+<ion-header id="up">
+  <ion-toolbar id="up">
+    <ion-item id="up">
+      <ion-label>
+        <ion-buttons>
+          <!--<button ion-button (click)="back()">Back</button>-->
+          <h1>Task details</h1>
+          <button ion-button (click)="openMenu($event)">
+            Menu
+          </button>
+        </ion-buttons>
+      </ion-label>
+    </ion-item>
+    <ion-item id="up">
+      <ion-label>
+        <ion-buttons>
+          <h2>Modify Task</h2>
+        </ion-buttons>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item id="content">
+    <ion-header>
+      <h3>Groceries</h3>
+      <div id="box">
+        <h4>Details</h4>
+        <p>leipä, mehu, tee, maito, leikkele</p>
+        <h4>Date</h4>
+          <ion-item id="datepicker">
+            <!--<ion-input [value]="dateValue2"></ion-input>-->
+            <ion-button fill="clear" id="open-date-input-2">
+              <ion-icon icon="calendar"></ion-icon>
+            </ion-button>
+            <ion-popover trigger="open-date-input-2" show-backdrop="false">
+              <ng-template>
+                <ion-datetime
+                  #popoverDatetime2
+                  presentation="date"
+                  (ionChange)="dateValue2 = formatDate(popoverDatetime2.value)"
+                ></ion-datetime>
+              </ng-template>
+            </ion-popover>
+          </ion-item>
+        <h4>Status</h4>
+        <p>Done</p>
+      </div>  
+      <footer>
+        <ion-button size="default"shape="round" fill="outline">
+          Cancel
+        </ion-button>
+        <ion-button size="default"shape="round">
+          Modify task
+        </ion-button>
+      </footer>
+    </ion-header>
+  </ion-item>
+
+    <ion-item id="up2">
+      <ion-label>{{today | date:'fullDate'}}</ion-label>
+   </ion-item>
 
 <ion-header>
   <ion-toolbar>
