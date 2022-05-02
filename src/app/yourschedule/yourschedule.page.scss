@@ -28,8 +28,6 @@ ion-toolbar {
 
 }
 
-
-
 #task-details-nav-button {
     --background: #6D60F8;
     align-items: end;
@@ -96,4 +94,9 @@ ion-toolbar {
 
 #add-task-calendar {
     height: 70%;
+}
+
+#open-modal {
+  margin-bottom:32px;
+  margin-top:24px;
 }
