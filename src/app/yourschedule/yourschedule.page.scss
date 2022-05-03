@@ -14,8 +14,31 @@ ion-row {
     width:100%;
 }
 
-ion-col {
-    padding: 0;
+ion-radio-group {
+    display: flex;
+    font-size: 0;
+    flex-wrap: wrap;
+    margin: -10px 0 0 -10px;
+
+    .radio-item {
+        display: inline-block;
+        margin: 10px 0 0 10px;
+        flex-grow: 1;
+        height: 50px;
+        width: 30%;
+        padding-right: 5px;
+    }
+
+    .radio-label {
+        font-size: 12px;
+        padding:0%;
+        margin:0%;
+    }
+
+    ion-radio{
+        padding-right:5%;
+        margin:0%;
+    }
 }
 
 ion-toolbar {
@@ -26,15 +49,37 @@ ion-toolbar {
     #menubutton {
         font-size:32px;
     }
-
 }
 
+#date-today {
+    --background: #6D60F8;
+}
+
+#filter-modal {
+    padding-top: 40%;
+    padding-bottom: 120%;
+}
+
+.filter-text {
+    color: #221153;
+    padding: 5%;
+    justify-items: center;
+    --background: #6D60F8;
+}
+
+ion-toggle {
+    --background: #6D60F8;
+    margin:none;
+    padding-right: 5%;
+}
 #task-details-nav-button {
     --background: #6D60F8;
     align-items: end;
     --border-style: none;
  }
- #page-title-text {
+
+#page-title-text {
+    --background: #6D60F8;
     text-align: center;
     font-size: 30px;
     color: white;

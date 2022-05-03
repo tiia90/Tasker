@@ -4,5 +4,5 @@ export interface StorageItem {
     content: string;
     lastUpdated: string;
     done: boolean;
-
+    dateForFilter: string;
 }

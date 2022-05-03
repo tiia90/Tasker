@@ -48,7 +48,6 @@ export class YourschedulePage implements OnInit {
         data => this.tasks = data
       )
     );
-
   }
 
   async presentAlertConfirm(id: number, title: string) {
@@ -92,10 +91,9 @@ export class YourschedulePage implements OnInit {
     await popover.present();
   }
 
-  addItem(title:string, content:string, lastUpdated:string) {
-    var dateAndTime = lastUpdated.split('T')[0] + " at " + lastUpdated.split('T')[1].slice(0, 5);
-
-    this.newTask = {"title": title, "content": content, "lastUpdated": dateAndTime, done: false};
+  addItem(title:string, content:string, dueDate:string) {
+    var dateAndTime = dueDate.split('T')[0] + " at " + dueDate.split('T')[1].slice(0, 5);
+    this.newTask = {"title": title, "content": content, "lastUpdated": dateAndTime, done: false, "dateForFilter": dueDate};
 
     this.taskService.saveTask(this.newTask).then(
       () => this.taskService.getTasks().then(

@@ -68,7 +68,7 @@ export class TaskdetailsPage implements OnInit {
 
   addItem(title:string, content:string, lastUpdated:string) {
     /*var dateAndTime = lastUpdated.split('T')[0] + " at " + lastUpdated.split('T')[1].slice(0, 5);*/
-    this.task = {"id": this.task.id, "title": title, "content": content, "lastUpdated": lastUpdated, done: false};
+    this.task = {"id": this.task.id, "title": title, "content": content, "lastUpdated": lastUpdated, done: false, "dateForFilter":lastUpdated};
     this.taskService.saveTask(this.task).then(
       () => this.taskService.getTasks().then(
         data => this.tasks = data

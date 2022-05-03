@@ -28,7 +28,7 @@ export class TasksService {
     if (t.id == undefined) {
       // New task
       const maxId = this.tasks.reduce((max, t) => t.id > max? t.id : max, -1);
-      const newTask = {id: maxId + 1, title: t.title, content: t.content, lastUpdated: t.lastUpdated, done: false};
+      const newTask = {id: maxId + 1, title: t.title, content: t.content, lastUpdated: t.lastUpdated, done: false,dateForFilter: t.dateForFilter};
       this.tasks.push(newTask);
     } else {
       // Edit task

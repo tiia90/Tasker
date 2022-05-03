@@ -1,7 +1,7 @@
 <ion-header class="menu-header">
   <ion-item class="ion-text-center menu-item">
     <ion-label slot="start" class="menu-label">
-      Menu
+      <ion-text>Menu</ion-text>
     </ion-label>
   </ion-item>
 </ion-header>
@@ -9,12 +9,9 @@
 <ion-content class="ion-content-center menu-content">
   <ion-item lines="none" class="menu-item">
     <ion-buttons slot="start" class="menu-buttons">
-      <button  class="menu-button" ion-button (click)="logout()">
-        <ion-row>
-          <ion-col class="menu-icon"><img src="assets/icon/tasker.png"></ion-col>
-          <ion-col class="menu-button-text">Logout</ion-col>
-        </ion-row>
-      </button>
+      <ion-button class="menu-button" ion-button (click)="logout()">
+        <ion-text>Logout</ion-text>
+      </ion-button>
     </ion-buttons>
   </ion-item>
 </ion-content>

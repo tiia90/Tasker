@@ -47,10 +47,10 @@
     <br>
     <ion-text id="show-status">{{this.task.done}}</ion-text>
     <br>
-      <ion-button (click)="nextpage()" expand="full">
+      <ion-button expand="block" (click)="nextpage()" >
         Cancel
       </ion-button>
-      <ion-button class="ion-margin" expand="block" (click)="addItem(title.value, content.value, date.value)" (click)="nextpage()">
+      <ion-button expand="block" (click)="addItem(title.value, content.value, date.value)" (click)="nextpage()">
         Save changes
       </ion-button>
   </div>

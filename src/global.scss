@@ -32,57 +32,65 @@
 /*Pudotusvalikon muotoilut tänne!*/
 /*WIP!!!!!*/
 .menu-popover {
+    --background: #6D60F8;
     --ion-backdrop-opacity: 0.6;
     --width: 60%;
     border-radius: 10px;
-    --background: #00CCCC;
+    align-items: center;
+}
 
+ion-item {        
+    --width:200px
+}
 
+ion-text {
+    color: white;
+}
     .menu-arrow {
         display: none;
     }
     
     .menu-content {
-        width: calc(100% - 6px);
+        --background: #6D60F8;
+
+        justify-items: center;
+        align-items: center;
+        --background:
+        width: 100%;
+        height:250px;
     }
 
     .menu-icon {
-        width: 80px;
+        --background: #6D60F8;
     }
 
     img {
-        height: 25px;
-        width: 25px;
+        --background: #6D60F8;
     }
 
     .menu-button-text {
-        width: 80px;
-        padding-right: 5px;
-        font-size: 20px;
-        
+        background-color: #6D60F8;
     }
 
     .menu-buttons {
-        --width: auto;  
+        background-color: #6D60F8;
     }
     .menu-button {
-        --width: auto;       
-    }
-
-    .menu-header {
-        --background: #00CCCC;
-        --width: auto;  
+        --background: #6D60F8;
     }
 
     .menu-label {
-        --width: auto;  
-        --background: #00CCCC;
+
+        color:white;
+        font-size: 20px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .menu-item {
-        --background:#CC00CC;
-        --width: auto;
+        --background: #6D60F8;
     }
 
-}
+    img {
+        width: 30px;
+        height: 30px;
+    }
