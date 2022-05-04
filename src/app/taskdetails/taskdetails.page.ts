@@ -67,9 +67,10 @@ export class TaskdetailsPage implements OnInit {
     await popover.present();
   }
 
-  addItem(title:string, content:string, lastUpdated:string) {
-    /*var dateAndTime = lastUpdated.split('T')[0] + " at " + lastUpdated.split('T')[1].slice(0, 5);*/
-    this.task = {"id": this.task.id, "title": title, "content": content, "lastUpdated": lastUpdated, done: false, "dateForFilter":parseInt(lastUpdated)};
+  addItem(title:string, content:string, dueDate:string) {
+    var filterDate = parseInt(dueDate.split("T")[0].split("-")[0] + dueDate.split("T")[0].split("-")[1] + dueDate.split("T")[0].split("-")[2])
+    var dateAndTime = dueDate.split('T')[0]
+    this.task = {"id": this.task.id, "title": title, "content": content, "lastUpdated": dateAndTime, done: false, "dateForFilter":filterDate};
     this.taskService.saveTask(this.task).then(
       () => this.taskService.getTasks().then(
         data => this.tasks = data

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="end">
-      <ion-menu-button id="menubutton" auto-hide="false" (click)="openMenu($event)">
+      <ion-menu-button auto-hide="false" (click)="openMenu($event)">
       </ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
@@ -15,10 +15,8 @@
     <ion-text>{{today | date:'fullDate'}}</ion-text>
   </ion-item>
 
-  <ion-item id="filter-div">
-    <ion-button>
-      <ion-text>Delete</ion-text>
-    </ion-button>
+  <ion-item id="delete-div">
+      <ion-toggle [(ngModel)]="deleteMode" disabled="false" slot="end"id="deleteMode"></ion-toggle>
   </ion-item>
 
 
@@ -40,10 +38,10 @@
               <ion-col>
                 <ion-row>
                   <ion-col><ion-label class="task-item-label"><ion-text class="title">{{ t.title }}</ion-text></ion-label></ion-col>
-                  <ion-col><ion-label class="task-item-label"><ion-text>{{ t.lastUpdated }}</ion-text></ion-label></ion-col>
+                  <ion-col><ion-label class="task-item-label"><ion-text class="task-details">{{ t.lastUpdated }}</ion-text></ion-label></ion-col>
                 </ion-row>
                 <ion-row>
-                  <ion-label class="task-item-label">{{ t.content }}</ion-label>
+                  <ion-label class="task-item-label"><ion-text class="task-details">{{ t.content }}</ion-text></ion-label>
                 </ion-row>
               </ion-col>
             </ion-row>
@@ -83,10 +81,11 @@
               <ion-button class="buttonOpened" expand="block" (click)="addItem(title.value, content.value, date.value)">Add task</ion-button>
 
 
-            </ng-template>
+          </ng-template>
         </ion-modal>
       </ion-card>
     </ion-button>
+
   </div>
 
 

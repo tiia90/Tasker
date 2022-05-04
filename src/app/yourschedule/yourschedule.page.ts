@@ -19,7 +19,7 @@ export class YourschedulePage implements OnInit {
   newTask: StorageItem;
   sortNameState: string = "none";
   sortDateState: string = "none";
-
+  deleteMode: boolean = false;
   constructor(
 
     private authService: AuthService,
@@ -58,6 +58,7 @@ export class YourschedulePage implements OnInit {
   }
 
   async presentAlertConfirm(id: number, title: string) {
+    if (this.deleteMode === false) {
     console.log('alert');
     const alert = await this.alertController.create({
       header: 'Delete task',
@@ -77,6 +78,10 @@ export class YourschedulePage implements OnInit {
     });
 
     await alert.present();
+  } else {
+    this.deleteTask(id);
+  }
+
   }
 
   nextpage() {
