@@ -40,6 +40,15 @@ ion-button {
 ion-item, ion-label, ion-input {
   --border-style: none;
 }
+
+#content-text {
+  height: 100%;
+}
+
+#content-box {
+  height: 100px;
+}
+
 #menubutton {
   height:30px;
   background-color: #FFFFFF;

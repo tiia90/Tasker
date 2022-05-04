@@ -20,20 +20,20 @@
       <ion-label position="floating">Title</ion-label>
       <ion-input #title clearInput [(ngModel)]="task.title"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item id="content-box">
       <ion-label position="floating">Content</ion-label>
-      <ion-input #content clearInput [(ngModel)]="task.content"></ion-input>
+      <ion-textarea id="content-text" #content clearInput [(ngModel)]="task.content"></ion-textarea>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Deadline</ion-label>
       <ion-input #date clearInput [(ngModel)]="task.lastUpdated"></ion-input>
     </ion-item>
-    <ion-item id="datepicker">
-      <!--<ion-input [value]="dateValue2"></ion-input>-->
+    <!--<ion-item id="datepicker">
+      <ion-input [value]="dateValue2"></ion-input>
       <ion-button fill="clear" id="open-date-input-2">
         <ion-icon icon="calendar"></ion-icon>
       </ion-button>
-      <!--<ion-popover trigger="open-date-input-2" show-backdrop="false">
+      <ion-popover trigger="open-date-input-2" show-backdrop="false">
         <ng-template>
           <ion-datetime
             #popoverDatetime2
@@ -41,8 +41,8 @@
             (ionChange)="dateValue2 = formatDate(popoverDatetime2.value)"
           ></ion-datetime>
         </ng-template>
-      </ion-popover>-->
-    </ion-item>
+      </ion-popover>
+    </ion-item>-->
     <ion-text id="status-title">Status</ion-text>
     <br>
     <ion-text id="show-status">{{this.task.done}}</ion-text>
