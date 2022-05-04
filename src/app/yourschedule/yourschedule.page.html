@@ -75,7 +75,7 @@
 
               <ion-item id="add-task-calendar">
                 <ion-label>Due date</ion-label>
-                <ion-datetime #date displayFormat="YYYY-MM-DD, HH:mm" size="cover"></ion-datetime>
+                <ion-datetime #date presentation="date" displayFormat="YYYY-MM-DD" size="cover"></ion-datetime>
               </ion-item>
 
               <ion-button class="cancelButton" expand="block" fill="clear" (click)="cancelItem()">Cancel</ion-button>

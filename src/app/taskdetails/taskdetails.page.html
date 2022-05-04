@@ -1,32 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-menu-button auto-hide="false" (click)="openMenu($event)">
-      </ion-menu-button>
-    </ion-buttons>
+    <ion-text id="page-title-text">Task details</ion-text>
+    <ion-menu-button slot="end" auto-hide="false" (click)="openMenu($event)"></ion-menu-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
   <div id="content-title-div">
-    <ion-text id="page-title-text">Task details</ion-text>
-    <br>
     <ion-text id="date">{{today | date:'fullDate'}}</ion-text>
   </div>
 
   <div id="task-details-div">
 
-    <ion-item>
-      <ion-text #title id="title-text-box">{{task.title}}</ion-text>
+    <ion-item id="title-text-item">
+      <ion-text id="title-text-box">{{task.title}}</ion-text>
     </ion-item>
 
   <div id="box-shadow">
     <ion-item>
       <ion-label position="stacked" id="content-box" class="task-item-text">Details</ion-label>
-      <ion-textarea #content [attr.rows]="6" id="content-text-box" placeholder={{task.content}}></ion-textarea>
+      <ion-textarea #content autoGrow="true" id="content-text-box" placeholder={{task.content}}></ion-textarea>
 
       <ion-label position="stacked" id="date-box" class="task-item-text">Deadline</ion-label>
-      <ion-input #date clearInput placeholder={{task.lastUpdated}}></ion-input>
+      <ion-row>
+        <ion-col>
+          <ion-text id="deadline-text">{{task.lastUpdated}}</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-icon id="calendar-trigger" name="calendar"></ion-icon>
+          <ion-modal id="add-task-modal" trigger="calendar-trigger">
+            <ng-template id="add-task-modal">
+              <!--kalenterin pitää tallentaa arvo, josta tulee date.value kun painetaan SAVE-->
+              <ion-datetime #date presentation="date" showDefaultButtons="true" displayFormat="YYYY-MM-DD" size="cover"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-col>
+    </ion-row>
     </ion-item>
   </div>
     <!--<ion-item id="datepicker">
@@ -47,7 +57,7 @@
       <ion-button expand="block" (click)="nextpage()" >
         Cancel
       </ion-button>
-      <ion-button expand="block" (click)="addItem(title.value, content.value, date.value)" (click)="nextpage()">
+      <ion-button expand="block" (click)="addItem(task.title, content.value, date.value)" (click)="nextpage()">
         Save changes
       </ion-button>
   </div>
