@@ -25,7 +25,6 @@ export class TaskdetailsPage implements OnInit {
   newTask: StorageItem
   task: StorageItem
   tasks: StorageItem[] = [];
-  dateVal: string;
 
   constructor(
     private tasksService: TasksService,
@@ -41,14 +40,6 @@ export class TaskdetailsPage implements OnInit {
     if (id != null) {
       this.task = this.tasksService.getTask(+id);
     }
-  }
-
-  ionViewWillEnter() {
-    this.dateVal = this.task.lastUpdated
-  }
-
-  newDate(newdate: string) {
-    this.dateVal = newdate
   }
 
   saveTask() {
