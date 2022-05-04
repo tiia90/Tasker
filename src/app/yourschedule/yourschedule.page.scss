@@ -12,33 +12,10 @@ ion-text {
 ion-row {
     --background: #6D60F8;
     width:100%;
+    padding:none;
 }
-
-ion-radio-group {
-    display: flex;
-    font-size: 0;
-    flex-wrap: wrap;
-    margin: -10px 0 0 -10px;
-
-    .radio-item {
-        display: inline-block;
-        margin: 10px 0 0 10px;
-        flex-grow: 1;
-        height: 50px;
-        width: 30%;
-        padding-right: 5px;
-    }
-
-    .radio-label {
-        font-size: 12px;
-        padding:0%;
-        margin:0%;
-    }
-
-    ion-radio{
-        padding-right:5%;
-        margin:0%;
-    }
+ion-col {
+    padding: none;
 }
 
 ion-toolbar {
@@ -55,23 +32,12 @@ ion-toolbar {
     --background: #6D60F8;
 }
 
-#filter-modal {
-    padding-top: 40%;
-    padding-bottom: 120%;
-}
-
-.filter-text {
-    color: #221153;
-    padding: 5%;
-    justify-items: center;
-    --background: #6D60F8;
-}
-
 ion-toggle {
     --background: #6D60F8;
     margin:none;
     padding-right: 5%;
 }
+
 #task-details-nav-button {
     --background: #6D60F8;
     align-items: end;
@@ -96,12 +62,25 @@ ion-toggle {
     width: 100%;
     height: 75%;
     border-radius: 25px 25px 0px 0px;
-    padding-top: 8%;
+    padding-top: 0%;
+}
+
+.sort-label {
+    font-size: 15px;
+    color: black;
+}
+
+.task-sort-item {
+    padding: 0;
+    margin:none;
+    border-radius: 25px;
+    --background: white;
+    --border-style: none;
 }
 
 .task-list-item {
     padding: 0;
-    margin: 2%;
+    margin: 2% 2%;
     border-radius: 5px;
     --background: #6D60F8;
     --border-style: none;
@@ -112,7 +91,8 @@ ion-toggle {
     width: 100%;
     text-align: start;
     height:50px;
-    padding: 0;
+    padding: none;
+    margin:none;
     box-shadow: none;
 }
 

@@ -15,46 +15,22 @@
     <ion-text>{{today | date:'fullDate'}}</ion-text>
   </ion-item>
 
-  <ion-item id="filter-div"><ion-button id="open-filters">
+  <ion-item id="filter-div">
+    <ion-button>
+      <ion-text>Delete</ion-text>
+    </ion-button>
+  </ion-item>
 
-       <ion-text>Filters</ion-text>
-
-      <ion-modal id="filter-modal" trigger="open-filters">
-        <ng-template id="filters-tempale">
-          <ion-item><ion-text class="filter-text">Active</ion-text><ion-toggle></ion-toggle> <ion-text class="filter-text">All</ion-text></ion-item>
-            <ion-item>
-              <ion-textarea #content placeholder="Enter keyword"></ion-textarea>
-            </ion-item>
-            <!--Tähän kalenteri, josta voi valita etsittävän päivän ja ehkä valinta "ennen, tänä päivänä, jälkeen"-->
-            
-            <ion-list>
-              <ion-radio-group value="biff">
-            
-                <ion-item class="radio-item">
-                  <ion-label class="radio-label">Biff</ion-label>
-                  <ion-radio slot="start" value="biff"></ion-radio>
-                </ion-item>
-            
-                <ion-item class="radio-item">
-                  <ion-label class="radio-label">Griff</ion-label>
-                  <ion-radio slot="start" value="griff"></ion-radio>
-                </ion-item>
-            
-                <ion-item class="radio-item">
-                  <ion-label class="radio-label">Buford</ion-label>
-                  <ion-radio slot="start" value="buford"></ion-radio>
-                </ion-item>
-              </ion-radio-group>
-            </ion-list>
-
-          
-          </ng-template>
-      </ion-modal>
-
-  </ion-button></ion-item>
 
 <!--Task-lista-->
   <div id="task-list-div">
+
+      <ion-item id="task-sort-item">
+        <ion-item id="nameHolder" (click)="sortName()"></ion-item><ion-text class="sort-label">Name</ion-text>
+        <ion-item id="dateHolder" (click)="sortDate()"></ion-item><ion-text class="sort-label">Date</ion-text>
+
+      </ion-item>
+
 
       <ion-item class="task-list-item" *ngFor="let t of tasks">
         <ion-row>

@@ -14,10 +14,11 @@ import { TasksService } from '../services/tasks.service';
 })
 export class YourschedulePage implements OnInit {
 
-  today : number = Date.now()
-  filter: 'all' | 'active' | 'status' = 'all';
+  today : number = Date.now();
   tasks: StorageItem[] = [];
-  newTask: StorageItem
+  newTask: StorageItem;
+  sortNameState: string = "none";
+  sortDateState: string = "none";
 
   constructor(
 
@@ -30,12 +31,16 @@ export class YourschedulePage implements OnInit {
     }
 
   ngOnInit(): void {
+    
   }
 
   ionViewWillEnter() {
     this.taskService.getTasks().then(
       data => this.tasks = data
-    );
+    )
+    document.getElementById('nameHolder').insertAdjacentHTML('afterbegin', '<ion-icon name="remove-outline"></ion-icon>')
+    document.getElementById('dateHolder').insertAdjacentHTML('afterbegin', '<ion-icon name="remove-outline"></ion-icon>')
+    ;
   }
 
   goEditTask(id:number) {
@@ -92,14 +97,17 @@ export class YourschedulePage implements OnInit {
   }
 
   addItem(title:string, content:string, dueDate:string) {
+    var filterDate = dueDate.slice(0,4) //+ dueDate.slice(5,7) + dueDate.slice(8-10)
     var dateAndTime = dueDate.split('T')[0] + " at " + dueDate.split('T')[1].slice(0, 5);
-    this.newTask = {"title": title, "content": content, "lastUpdated": dateAndTime, done: false, "dateForFilter": dueDate};
+    this.newTask = {"title": title, "content": content, "lastUpdated": filterDate, done: false, "dateForFilter": filterDate};
 
     this.taskService.saveTask(this.newTask).then(
       () => this.taskService.getTasks().then(
         data => this.tasks = data
       )
     );
+    this.sortNameState = "none";
+    this.sortDateState = "none"
 
     this.modalCtrl.dismiss();
 
@@ -120,4 +128,69 @@ export class YourschedulePage implements OnInit {
 
     this.currentModal = modal;
   }
+
+  sortName() {
+    if(this.sortNameState ==="asc")  {
+      this.tasks.sort((a, b) => a.title.localeCompare(b.title)).reverse()
+      this.sortNameState = "desc"
+      document.getElementById('nameHolder').innerHTML = ""
+      document.getElementById('nameHolder').insertAdjacentHTML('afterbegin', '<ion-icon name="chevron-up"></ion-icon>')
+
+    } else if (this.sortNameState === "desc") {
+      this.tasks.sort((a, b) => a.title.localeCompare(b.title))
+      this.sortNameState = "asc"
+      document.getElementById('nameHolder').innerHTML = ""
+      document.getElementById('nameHolder').insertAdjacentHTML('afterbegin', '<ion-icon name="chevron-down"></ion-icon>')
+    
+    } else if (this.sortNameState === "none") {
+      this.tasks.sort((a, b) => a.title.localeCompare(b.title))
+      this.sortNameState = "asc"
+      document.getElementById('nameHolder').innerHTML = ""
+      document.getElementById('nameHolder').insertAdjacentHTML('afterbegin', '<ion-icon name="chevron-down"></ion-icon>')
+    
+    } 
+    //No longer sorted by date
+    this.sortDateState = "none"
+
+  }
+
+  sortDate() {
+    if(this.sortNameState ==="asc")  {
+      this.tasks.sort((a, b) => parseInt(a.dateForFilter) - parseInt(b.dateForFilter)).reverse()
+      this.sortDateState = "desc"
+      document.getElementById('dateHolder').innerHTML = ""
+      document.getElementById('dateHolder').insertAdjacentHTML('afterbegin', '<ion-icon name="chevron-up"></ion-icon>')
+
+    } else if (this.sortNameState === "desc") {
+      this.tasks.sort((a, b) => parseInt(a.dateForFilter) - parseInt(b.dateForFilter))
+      this.sortDateState = "asc"
+      document.getElementById('dateHolder').innerHTML = ""
+      document.getElementById('dateHolder').insertAdjacentHTML('afterbegin', '<ion-icon name="chevron-down"></ion-icon>')
+    
+    } else if (this.sortNameState === "none") {
+      this.tasks.sort((a, b) => parseInt(a.dateForFilter) - parseInt(b.dateForFilter))
+      this.sortDateState = "asc"
+      document.getElementById('dateHolder').innerHTML = ""
+      document.getElementById('dateHolder').insertAdjacentHTML('afterbegin', '<ion-icon name="chevron-down"></ion-icon>')
+    
+      //No longer sorted by name
+      this.sortNameState = "none"
+
+    } 
+
+
+  }
+  
+
+
+  /*compareName( a, b ) {
+    if ( a.title < b.title ){
+      return -1;
+    }
+    if ( a.title > b.title ){
+      return 1;
+    }
+    return 0;
+  }*/
+
 }
