@@ -38,8 +38,13 @@ ion-content {
         --background: #6D60F8;
         --border-style: none;
 
+        #del-text {
+            font-size: 9px;
+            color: white;
+        }
         #deleteMode {
-            width: 30%;
+            padding-left: 0;
+            width: 25%;
             --background-checked: #a02828;
 
         }
@@ -91,7 +96,8 @@ ion-content {
             .task-item-button {
                 --background: #6D60F8;
                 width: 100%;
-                text-align: start;
+                align-items: left;
+                text-align: left;
                 height:50px;
                 padding: none;
                 margin:none;
@@ -102,11 +108,8 @@ ion-content {
                 --background: #6D60F8;
                 width: 100%;
                 margin:none;
-                text-align: start;
-
-            
+         
                 .title {
-                    margin:none;
                     padding:none;
                     font-size: 13px;
                     font-weight: bold;

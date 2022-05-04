@@ -1,9 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="end">
-      <button id="menubutton" (click)="openMenu($event)">
-        MENU
-      </button>
+      <ion-menu-button auto-hide="false" (click)="openMenu($event)">
+      </ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -16,18 +15,20 @@
   </div>
 
   <div id="task-details-div">
+
     <ion-item>
-      <ion-label position="floating">Title</ion-label>
-      <ion-textarea #title clearInput [(ngModel)]="task.title"></ion-textarea>
+      <ion-text #title id="title-text-box">{{task.title}}</ion-text>
     </ion-item>
-    <ion-item id="content-box">
-      <ion-label position="floating">Content</ion-label>
-      <ion-textarea id="content-text" #content clearInput [(ngModel)]="task.content"></ion-textarea>
-    </ion-item>
+
+  <div id="box-shadow">
     <ion-item>
-      <ion-label position="floating">Deadline</ion-label>
-      <ion-input #date clearInput [(ngModel)]="task.lastUpdated"></ion-input>
+      <ion-label position="stacked" id="content-box" class="task-item-text">Details</ion-label>
+      <ion-textarea #content [attr.rows]="6" id="content-text-box" placeholder={{task.content}}></ion-textarea>
+
+      <ion-label position="stacked" id="date-box" class="task-item-text">Deadline</ion-label>
+      <ion-input #date clearInput placeholder={{task.lastUpdated}}></ion-input>
     </ion-item>
+  </div>
     <!--<ion-item id="datepicker">
       <ion-input [value]="dateValue2"></ion-input>
       <ion-button fill="clear" id="open-date-input-2">
@@ -43,10 +44,6 @@
         </ng-template>
       </ion-popover>
     </ion-item>-->
-    <ion-text id="status-title">Status</ion-text>
-    <br>
-    <ion-text id="show-status">{{this.task.done}}</ion-text>
-    <br>
       <ion-button expand="block" (click)="nextpage()" >
         Cancel
       </ion-button>

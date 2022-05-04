@@ -68,8 +68,21 @@ export class TaskdetailsPage implements OnInit {
   }
 
   addItem(title:string, content:string, dueDate:string) {
-    var filterDate = parseInt(dueDate.split("T")[0].split("-")[0] + dueDate.split("T")[0].split("-")[1] + dueDate.split("T")[0].split("-")[2])
-    var dateAndTime = dueDate.split('T')[0]
+    if (title === "") {
+      title = this.task.title;
+    }
+    if (content === "") {
+      content = this.task.content
+    }
+
+    if (dueDate !== "") {
+      var filterDate = parseInt(dueDate.split("T")[0].split("-")[0] + dueDate.split("T")[0].split("-")[1] + dueDate.split("T")[0].split("-")[2])
+      var dateAndTime = dueDate.split('T')[0]
+    } else {
+      var filterDate = this.task.dateForFilter
+      var dateAndTime = this.task.lastUpdated
+    }
+
     this.task = {"id": this.task.id, "title": title, "content": content, "lastUpdated": dateAndTime, done: false, "dateForFilter":filterDate};
     this.taskService.saveTask(this.task).then(
       () => this.taskService.getTasks().then(
