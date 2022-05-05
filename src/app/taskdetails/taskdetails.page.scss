@@ -25,6 +25,15 @@ ion-toolbar {
   }
 }
 
+ion-row {
+  --width:100vh; 
+}
+
+ion-toggle {
+  --zoom: -50%;
+  margin-bottom: 1%;
+}
+
 ion-button {
   margin-top: 10px;
   margin-left: auto;
@@ -41,7 +50,6 @@ ion-button {
 ion-item, ion-label, ion-input {
   --border-style: none;
 }
-
 
 #page-title-text {
   margin-left: 24%;
@@ -64,7 +72,7 @@ ion-item, ion-label, ion-input {
   margin: 2%;
 }
 
-#task-details-div { 
+#task-details-div {
   background-color: white; 
   margin-top: 10%;
   padding-top: 3%;
@@ -88,9 +96,7 @@ ion-item, ion-label, ion-input {
   }
 
   #box-shadow {  
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+
     padding:none;
     height: 250px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px 0px;
@@ -108,6 +114,10 @@ ion-item, ion-label, ion-input {
 
   }
   
+}
+
+#toggle-label {
+  font-size: 11px;
 }
 
 #deadline-text {

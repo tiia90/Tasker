@@ -22,11 +22,14 @@
       <ion-label position="stacked" id="content-box" class="task-item-text">Details</ion-label>
       <ion-textarea #content autoGrow="true" id="content-text-box" placeholder={{task.content}}></ion-textarea>
 
-      <ion-label position="stacked" id="date-box" class="task-item-text">Deadline</ion-label>
+
+          <ion-label position="stacked" id="date-box" class="task-item-text">Deadline</ion-label> 
       <ion-row>
         <ion-col>
           <ion-text id="deadline-text">{{this.date}}</ion-text>
         </ion-col>
+      </ion-row>
+      <ion-row>
         <ion-col>
           <ion-icon id="calendar-trigger" name="calendar"></ion-icon>
           <ion-modal id="add-task-modal" trigger="calendar-trigger">
