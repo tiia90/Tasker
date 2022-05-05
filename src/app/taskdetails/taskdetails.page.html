@@ -25,14 +25,14 @@
       <ion-label position="stacked" id="date-box" class="task-item-text">Deadline</ion-label>
       <ion-row>
         <ion-col>
-          <ion-text id="deadline-text">{{task.lastUpdated}}</ion-text>
+          <ion-text id="deadline-text">{{this.date}}</ion-text>
         </ion-col>
         <ion-col>
           <ion-icon id="calendar-trigger" name="calendar"></ion-icon>
           <ion-modal id="add-task-modal" trigger="calendar-trigger">
             <ng-template id="add-task-modal">
               <!--kalenterin pitää tallentaa arvo, josta tulee date.value kun painetaan SAVE-->
-              <ion-datetime #date presentation="date" showDefaultButtons="true" displayFormat="YYYY-MM-DD" size="cover"></ion-datetime>
+              <ion-datetime #date presentation="date" showDefaultButtons="true" displayFormat="YYYY-MM-DD" size="cover" (ionChange)="updateMyDate(date.value)"></ion-datetime>
             </ng-template>
           </ion-modal>
         </ion-col>
@@ -57,7 +57,7 @@
       <ion-button expand="block" (click)="nextpage()" >
         Cancel
       </ion-button>
-      <ion-button expand="block" (click)="addItem(task.title, content.value, date.value)" (click)="nextpage()">
+      <ion-button expand="block" (click)="addItem(task.title, content.value, this.date)" (click)="nextpage()">
         Save changes
       </ion-button>
   </div>

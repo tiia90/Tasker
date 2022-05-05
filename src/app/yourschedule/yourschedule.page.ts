@@ -106,7 +106,7 @@ export class YourschedulePage implements OnInit {
   addItem(title:string, content:string, dueDate:string) {
     var filterDate = parseInt(dueDate.split("T")[0].split("-")[0] + dueDate.split("T")[0].split("-")[1] + dueDate.split("T")[0].split("-")[2]) 
     var dateAndTime = dueDate.split('T')[0]
-    this.newTask = {"title": title, "content": content, "lastUpdated": dateAndTime, done: false, "dateForFilter": filterDate};
+    this.newTask = {"title": title, "content": content, "lastUpdated": dateAndTime, done: false, "dateForFilter": filterDate, "isActive":false};
 
     this.taskService.saveTask(this.newTask).then(
       () => this.taskService.getTasks().then(

@@ -5,4 +5,5 @@ export interface StorageItem {
     lastUpdated: string;
     done: boolean;
     dateForFilter: number;
+    isActive: boolean;
 }

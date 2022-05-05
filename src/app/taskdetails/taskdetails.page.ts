@@ -20,7 +20,7 @@ import { format, parseISO, getDate, getMonth, getYear } from 'date-fns';
 
 export class TaskdetailsPage implements OnInit {
 
-
+  date : string;
   today : number = Date.now()
   newTask: StorageItem
   task: StorageItem
@@ -39,7 +39,12 @@ export class TaskdetailsPage implements OnInit {
     const id = this.router.snapshot.paramMap.get('id');
     if (id != null) {
       this.task = this.tasksService.getTask(+id);
+    } else {
+      this.task = this.tasks.find(curtask => { curtask.isActive === true })
     }
+    
+
+    this.date = this.task.lastUpdated
   }
 
   saveTask() {
@@ -47,6 +52,7 @@ export class TaskdetailsPage implements OnInit {
   }
 
   nextpage() {
+    this.task.isActive = false
     this.route.navigate(['/yourschedule']);
 
   }
@@ -66,6 +72,10 @@ export class TaskdetailsPage implements OnInit {
     await popover.present();
   }
 
+  updateMyDate($event) {
+    this.date = $event.slice(0,10); // --> wil contains $event.day.value, $event.month.value and $event.year.value
+  }
+
   addItem(title:string, content:string, dueDate:string) {
     if (title === "") {
       title = this.task.title;
@@ -82,12 +92,13 @@ export class TaskdetailsPage implements OnInit {
       var dateAndTime = this.task.lastUpdated
     }
 
-    this.task = {"id": this.task.id, "title": title, "content": content, "lastUpdated": dateAndTime, done: false, "dateForFilter":filterDate};
+    this.task = {"id": this.task.id, "title": title, "content": content, "lastUpdated": dateAndTime, done: false, "dateForFilter":filterDate, "isActive": true};
     this.taskService.saveTask(this.task).then(
       () => this.taskService.getTasks().then(
         data => this.tasks = data
       )
     );
+
   }
 
   /*interface DatetimeChangeEventDetail {
