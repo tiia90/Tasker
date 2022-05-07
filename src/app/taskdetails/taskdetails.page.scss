@@ -6,12 +6,13 @@
 #up2 {
   --background: #6D60F8;
   width:100%;
-  
+
 
 }
 #date {
   color: white;
 }
+
 h1 {
   color: white;
   padding-left: 35px;
@@ -27,7 +28,6 @@ button {
 
 h2 {
   color: white;
-
   padding-bottom: 55px;
   font-family: Roboto thin, sans-serif;
   font-size: 19px;
@@ -35,7 +35,7 @@ h2 {
   padding-right: 120px;
 }
 
-h3 {
+title-text-item {
   color: black;
   text-align: left;
   font-family: Roboto Bold, sans-serif;
@@ -62,7 +62,7 @@ p {
   --background: #6D60F8;
 
 }
-#content {
+ion-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,23 +70,19 @@ p {
   background-color: white;
   width: 100%;
   padding-top: 5px;
-  border-radius: 25px 25px ;
+  border-radius: 25px 25px;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
-
 }
+
+
 ion-back-button {
   color:#FFFFFF;
   margin-right: 35px;
-  
-}
-ion-content {
-  --background: #6D60F8;
+
 }
 
-ion-menu-button {
-  color:#FFFFFF;
-}
+
 ion-button {
   width: 360px;
   align-items: center;
@@ -97,20 +93,31 @@ ion-button {
   font-family: sans-serif;
   font-size: 21px;
 }
-footer {
+#footer {
   padding-top: 164px;
   padding-bottom: 85px;
 }
 
-#datepicker { 
+#datepicker {
   width: 25%;
-} 
+}
 
 #box {
-  
   border-radius: 10px;
   align-items: center;
   padding: 5px;
   width: 360px;
   box-shadow: rgba(0, 0, 0, 0.16) 3px 3px 6px 1px;
-} 
+}
+
+ion-menu-button {
+  height:30px;
+  color: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.7) 0px 3px 9px 0px;
+}
+
+#datepicker {
+  width: 25%;
+}
+

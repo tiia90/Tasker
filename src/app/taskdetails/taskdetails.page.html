@@ -24,7 +24,7 @@
       <ion-textarea #content autoGrow="true" id="content-text-box" placeholder={{task.content}}></ion-textarea>
 
 
-          <ion-label position="stacked" id="date-box" class="task-item-text">Deadline</ion-label> 
+          <ion-label position="stacked" id="date-box" class="task-item-text">Deadline</ion-label>
       <ion-row>
         <ion-col>
           <ion-text id="deadline-text">{{this.date}}</ion-text>
@@ -65,7 +65,7 @@
       <ion-button expand="block" (click)="addItem(task.title, content.value, this.date)" (click)="nextpage()">
         Save changes
       </ion-button>
-  
+
   </div>
 </ion-content>-->
 
@@ -91,43 +91,43 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-item id="content">
-    <ion-header>
-      <h3>Groceries</h3>
+      <ion-header>
+
+        <ion-item id="title-text-item">
+          <ion-text id="title-text-box">{{task.title}}</ion-text>
+        </ion-item>
+      </ion-header>
       <div id="box">
-        <h4>Details</h4>
-        <p>leipä, mehu, tee, maito, leikkele</p>
-        <h4>Date</h4>
-          <ion-item id="datepicker">
-            <ion-input [value]="dateValue2"></ion-input>
-            <ion-button fill="clear" id="open-date-input-2">
-              <ion-icon icon="calendar"></ion-icon>
-            </ion-button>
-            <ion-popover trigger="open-date-input-2" show-backdrop="false">
-              <ng-template>
-                <ion-datetime
-                  #popoverDatetime2
-                  presentation="date"
-                  (ionChange)="dateValue2 = formatDate(popoverDatetime2.value)"
-                ></ion-datetime>
-              </ng-template>
-            </ion-popover>
-          </ion-item>
-        <h4>Status</h4>
-        <p>Done</p>
-      </div>  
-      <footer>
-        <ion-button size="default" fill="outline">
+        <ion-item>
+          <ion-label position="stacked" id="content-box" class="task-item-text">Details</ion-label>
+          <ion-textarea #content autoGrow="true" id="content-text-box" placeholder={{task.content}}></ion-textarea>
+              <ion-label position="stacked" id="date-box" class="task-item-text">Deadline</ion-label>
+          <ion-row>
+            <ion-col>
+              <ion-text id="deadline-text">{{this.date}}</ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-icon id="calendar-trigger" name="calendar"></ion-icon>
+              <ion-modal id="add-task-modal" trigger="calendar-trigger">
+                <ng-template id="add-task-modal">
+                  <ion-datetime #date presentation="date" showDefaultButtons="true" displayFormat="YYYY-MM-DD" size="cover" (ionChange)="updateMyDate(date.value)"></ion-datetime>
+                </ng-template>
+              </ion-modal>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </div>
+      <ion-item id="footer">
+        <ion-button size="default" fill="outline"expand="block" (click)="nextpage()">
           Cancel
         </ion-button>
-        <ion-button size="default">
+        <ion-button size="default" expand="block" (click)="addItem(task.title, content.value, this.date)" (click)="nextpage()">
           Modify task
         </ion-button>
-      </footer>
-    </ion-header>
-  </ion-item>
+      </ion-item>
 </ion-content>
-
 
 
 
