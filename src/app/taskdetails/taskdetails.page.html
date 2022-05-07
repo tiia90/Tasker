@@ -92,41 +92,75 @@
 </ion-header>
 <ion-content>
       <ion-header>
+      </ion-header>
+        <div id="modifyPage">
+
+
+
 
         <ion-item id="title-text-item">
-          <ion-text id="title-text-box">{{task.title}}</ion-text>
+          <h3>{{task.title}}</h3>
         </ion-item>
-      </ion-header>
+
       <div id="box">
+<ion-row>
         <ion-item>
           <ion-label position="stacked" id="content-box" class="task-item-text">Details</ion-label>
           <ion-textarea #content autoGrow="true" id="content-text-box" placeholder={{task.content}}></ion-textarea>
-              <ion-label position="stacked" id="date-box" class="task-item-text">Deadline</ion-label>
-          <ion-row>
-            <ion-col>
-              <ion-text id="deadline-text">{{this.date}}</ion-text>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-icon id="calendar-trigger" name="calendar"></ion-icon>
-              <ion-modal id="add-task-modal" trigger="calendar-trigger">
-                <ng-template id="add-task-modal">
-                  <ion-datetime #date presentation="date" showDefaultButtons="true" displayFormat="YYYY-MM-DD" size="cover" (ionChange)="updateMyDate(date.value)"></ion-datetime>
-                </ng-template>
-              </ion-modal>
-            </ion-col>
-          </ion-row>
         </ion-item>
+
+
+</ion-row>
+          <ion-row>
+            <ion-col>
+              <p id="deadlineText">Deadline</p>
+            </ion-col>
+            <ion-col id="dateBox">
+              <p id="deadline-text">{{this.date}}</p>
+            </ion-col>
+
+<ion-col>
+  <ion-icon id="calendar-trigger" name="calendar"></ion-icon>
+  <ion-modal id="add-task-modal" trigger="calendar-trigger">
+    <ng-template id="add-task-modal">
+      <ion-datetime #date presentation="date" showDefaultButtons="true" displayFormat="YYYY-MM-DD" size="cover" (ionChange)="updateMyDate(date.value)"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+</ion-col>
+            <ion-col>
+
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label id="selector">Add to calendar</ion-label>
+              <ion-toggle color="primary"></ion-toggle>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+
+                <ion-label>Delete task</ion-label>
+                <ion-toggle id="selector2" color="primary"></ion-toggle>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
       </div>
-      <ion-item id="footer">
-        <ion-button size="default" fill="outline"expand="block" (click)="nextpage()">
+        <ion-button size="large" fill="outline"expand="block" (click)="nextpage()">
           Cancel
         </ion-button>
-        <ion-button size="default" expand="block" (click)="addItem(task.title, content.value, this.date)" (click)="nextpage()">
-          Modify task
-        </ion-button>
-      </ion-item>
+          <ion-button size="large" expand="block" (click)="addItem(task.title, content.value, this.date)" (click)="nextpage()">
+            Modify task
+          </ion-button>
+          <ion-row id="buffer">
+          </ion-row>
+        </div>
+
+
 </ion-content>
 
 

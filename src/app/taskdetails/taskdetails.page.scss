@@ -1,6 +1,29 @@
+
+#dateBox {
+  margin-left: 8px;
+}
+
+#deadlineText {
+  margin-left:20px;
+}
+
+#calendar-trigger {
+  padding-top:8px;
+  margin-top:8px;
+  width:32px;
+  height: 32px;
+}
+
 #up {
   --background: #6D60F8;
   width:100%;
+}
+
+#title-text-item {
+
+  width:100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 #up2 {
@@ -35,16 +58,16 @@ h2 {
   padding-right: 120px;
 }
 
-title-text-item {
+h3 {
   color: black;
   text-align: left;
   font-family: Roboto Bold, sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
 
 }
 
-h4  {
+#title-text-item  {
   color: black;
   text-align: left;
   font-family: sans-serif;
@@ -70,28 +93,48 @@ ion-content {
   background-color: white;
   width: 100%;
   padding-top: 5px;
-  border-radius: 25px 25px;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
+  --background: #6D60F8;
 }
 
-
+#modifyPage{
+  background-color:white;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
 ion-back-button {
   color:#FFFFFF;
   margin-right: 35px;
 
 }
 
+ion-toggle {
+  font-size:8px;
+  height:32px;
+  --handle-background-checked:blue;
+}
+
+#selector {
+  font-size:6px;
+}
+
+#selector2 {
+  float:right;
+}
+
+
 
 ion-button {
   width: 360px;
   align-items: center;
-  padding-right: 12px;
-  border-radius: 10px;
+  border-radius: 12px;
   height: 45px;
   text-align:center;
   font-family: sans-serif;
   font-size: 21px;
+  margin-left:12px;
+  padding-top:10px;
 }
 #footer {
   padding-top: 164px;
@@ -103,11 +146,12 @@ ion-button {
 }
 
 #box {
-  border-radius: 10px;
   align-items: center;
   padding: 5px;
   width: 360px;
   box-shadow: rgba(0, 0, 0, 0.16) 3px 3px 6px 1px;
+  margin-left:12px;
+  margin-bottom:150px;
 }
 
 ion-menu-button {
@@ -121,3 +165,6 @@ ion-menu-button {
   width: 25%;
 }
 
+#buffer {
+  padding:32px;
+}
