@@ -2,11 +2,26 @@
 
 ion-toolbar {
     --background: #6D60F8;
-    padding-right: 6%;
+    margin-top: 10px;
     --border-style: none;
 
     ion-menu-button {
         font-size:32px;
+        margin-left: 20px;
+        margin-right: 25px;
+        color:#FFFFFF;
+    }
+    ion-text {
+        
+        align-self: center;
+        font-family: Roboto Regular, sans-serif;
+        font-size: 33px;
+        color:#FFFFFF;
+    }
+    ion-back-button {
+        color:#FFFFFF;
+        margin-right: 35px;
+        
     }
 }
 
@@ -15,6 +30,7 @@ ion-content {
     --background: #6D60F8;
     width: 100%;
     text-align: center;
+    align-content: center;
     --border-style: none;
 
     //OTSIKKO-RIVI
@@ -22,15 +38,28 @@ ion-content {
         --border-style: none;
         --background: #6D60F8;
         text-align: center;
-        font-size: 30px;
+        font-family: Arial Regular, Helvetica, sans-serif;
+        font-size: 19px;
         color: white;
-        margin:auto;
+        
+        margin-top: 5px;
     }
-
+h2 {
+    font-size: 19px;
+        font-family: Roboto Light, Helvetica, sans-serif;
+        margin-left: 38px;
+        padding-bottom: 18%;
+        color:#FFFFFF;
+}
     //PÄIVÄMÄÄRÄ
     #date-today {
         --background: #6D60F8;
         --border-style: none;
+        text-align: center;
+        font-size: 19px;
+        font-family: Roboto Light, Helvetica, sans-serif;
+        margin-top: -5,5%;
+        margin-left: 50px;
     }
 
     //MASS-DELETE
@@ -39,7 +68,7 @@ ion-content {
         --border-style: none;
 
         #del-text {
-            font-size: 9px;
+            font-size: 11px;
             color: white;
         }
         #deleteMode {
@@ -57,16 +86,19 @@ ion-content {
         --border-style: none;
         background-color: #FFFFFF;
         width: 100%;
-        height: 75%;
+    
+        height: 80%;
         border-radius: 25px 25px 0px 0px;
-        padding-top: 0%;
+        
+        padding-bottom: 0%;
 
 
         //SORTING ICON NAME
         .sort-label {
             margin-right: 10%;
             font-size: 15px;
-            color: black;
+            --background: white;
+            color: #333333;
             --border-style: none;
         }
         
@@ -76,6 +108,7 @@ ion-content {
             margin:none;
             border-radius: 25px;
             --background: white;
+
             --border-style: none;
         }
         
@@ -86,37 +119,56 @@ ion-content {
 
         //YKSITTÄINEN TASK
         .task-list-item {
-            padding: 0;
-            margin: 2% 2%;
-            border-radius: 5px;
-            --background: #6D60F8;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin: 5% 5%;
+            height: 45px;
+            border-radius: 10px;
+            --background: #ffffff;
             --border-style: none;
+            box-shadow: rgba(0, 0, 0, 0.16) 3px 3px 6px 0px;
 
             //NAPPI TASK DETAILSIIN
             .task-item-button {
-                --background: #6D60F8;
+                --background: #ffffff;
+                margin-top: 5px;
+                margin-bottom: 100px;
                 width: 100%;
                 align-items: left;
                 text-align: left;
-                height:50px;
+                height: 45px;
                 padding: none;
                 margin:none;
                 box-shadow: none;
             }
 
             .task-item-label {
-                --background: #6D60F8;
+                --background: #ffffff;
                 width: 100%;
-                margin:none;
+                margin-bottom: 0%;
+                height: 25px;
          
                 .title {
-                    padding:none;
-                    font-size: 13px;
+                    
+                    font-size: 16px;
                     font-weight: bold;
+                    color:#333333;
+                    font-family: Arial, sans-serif;
+                    
+
+                    
                 }
                 
                 .task-details {
+                    
                     font-size: 10px;
+                    color:#333333;
+                    font-family: Arial, sans-serif;
+                    font-weight: normal;
+                    font-size: 14px;
+                    height: 55px;
+                    
+                    
                 }
             }
         }
@@ -127,7 +179,13 @@ ion-content {
     }
         
     }
- 
+ ion-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: none;
+ }
 
 ion-text {
     color: white;
@@ -145,18 +203,34 @@ ion-col {
     --border-style: none;
 }
 
+ion-card-content {
+    
+    margin-bottom:32px;
+    margin-top:24px;
+    background:#6D60F8;
+    border-radius: 10px;
+    width: 100%;
+    color:#FFFFFF;
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    
+
+
+    
+}
 
 
 .delete-button {
-    --background: #6D60F8;
-    border-radius: 5px;
-    align-content: center;
-    height: 50px;
+    --background: #ffffff;
+    color:#6D60F8;
+    height: 25px;
+    
 }
 
 #add-task-modal {
     padding-top: 15%;
     padding-bottom: 15%;
+    
 }
 
 #add-task-calendar {
@@ -166,6 +240,9 @@ ion-col {
 #open-modal {
   margin-bottom:32px;
   margin-top:24px;
+  background:#6D60F8;
+  border-radius: 10px;
+  width: 360px;
 }
 
 .cancelButton {
