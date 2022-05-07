@@ -15,7 +15,7 @@
   <ion-item id="page-title-text" id="date-today">
     <h2>{{today | date:'fullDate'}}</h2>
   </ion-item>
-  
+
 
   <ion-item id="delete-div">
       <ion-text slot="end" id="del-text">Quick delete</ion-text>
@@ -38,13 +38,13 @@
           <ion-col size="10">
           <ion-button class="task-item-button" (click)="goEditTask(t.id)">
             <ion-row>
-              <ion-col>
+
                 <ion-row>
-                  <ion-col ><ion-label class="task-item-label"><ion-text class="title">{{ t.title }}</ion-text></ion-label></ion-col>
+                  <ion-col class="taskTitle"><ion-label class="task-item-label"><ion-text class="title">{{ t.title }}</ion-text></ion-label></ion-col>
                   <ion-col><ion-label class="task-item-label"><ion-text class="task-details">{{ t.lastUpdated }}</ion-text></ion-label></ion-col>
                   <ion-label class="task-item-label"><ion-text class="task-details">{{ t.content }}</ion-text></ion-label>
                 </ion-row>
-              </ion-col>
+
             </ion-row>
             </ion-button>
           </ion-col>
